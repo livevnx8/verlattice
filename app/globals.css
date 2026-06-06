@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0a0a0f;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #2e2e4e; }
+
+/* Markdown inside messages */
+.prose-veda h1, .prose-veda h2, .prose-veda h3 {
+  color: #fcee0a;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.prose-veda strong { color: #ffffff; font-weight: 600; }
+.prose-veda code {
+  background: #1a1a2e;
+  color: #fcee0a;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82em;
+}
+.prose-veda pre {
+  background: #0f0f1a;
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-size: 0.82em;
+  font-family: 'JetBrains Mono', monospace;
+}
+.prose-veda pre code { background: none; padding: 0; }
+.prose-veda p { margin: 0.3rem 0; line-height: 1.6; }
+.prose-veda ul, .prose-veda ol { padding-left: 1.25rem; margin: 0.4rem 0; }
+.prose-veda li { margin: 0.15rem 0; }
+.prose-veda table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; font-size: 0.875rem; }
+.prose-veda th { border-bottom: 1px solid #1e1e2e; padding: 0.35rem 0.75rem; text-align: left; color: #fcee0a; font-weight: 600; }
+.prose-veda td { border-bottom: 1px solid #111118; padding: 0.35rem 0.75rem; }
+.prose-veda blockquote { border-left: 2px solid #fcee0a; padding-left: 0.75rem; color: #94a3b8; font-style: italic; margin: 0.4rem 0; }
+
+/* Typing cursor */
+.typing-cursor::after {
+  content: '▋';
+  color: #fcee0a;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Typing indicator animation delays */
+.delay-0 { animation-delay: 0ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Textarea auto-resize constraints */
+.textarea-chat {
+  min-height: 48px;
+  max-height: 160px;
+}
+
+/* Glow effect on accent */
+.glow-green { text-shadow: 0 0 8px rgba(252, 238, 10, 0.5); }
+.border-glow { box-shadow: 0 0 12px rgba(252, 238, 10, 0.1); }
+
+/* Tab content fade in */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide scrollbar for nav */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
