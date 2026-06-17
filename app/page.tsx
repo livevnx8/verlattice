@@ -17,6 +17,7 @@ import BitLatticeFlowDiagram from '@/components/BitLatticeFlowDiagram';
 import ArchitectureFlow from '@/components/ArchitectureFlow';
 import OverviewPanel from '@/components/OverviewPanel';
 import AgentEconomy from '@/components/AgentEconomy';
+import ReceiptExplorer from '@/components/ReceiptExplorer';
 
 const TABS = [
   { id: 'overview', label: 'Overview', icon: <Hexagon className="h-4 w-4" />, component: OverviewPanel },
@@ -25,6 +26,7 @@ const TABS = [
   { id: 'economy', label: 'Economy', icon: <Coins className="h-4 w-4" />, component: AgentEconomy },
   { id: 'evidence', label: 'Evidence', icon: <Database className="h-4 w-4" />, component: EvidenceRegistryBrowser },
   { id: 'proof', label: 'Proof', icon: <Shield className="h-4 w-4" />, component: ProofReceiptVisualizer },
+  { id: 'explorer', label: 'Explorer', icon: <Shield className="h-4 w-4" />, component: ReceiptExplorer },
   { id: 'bitlattice', label: 'Flow', icon: <BarChart3 className="h-4 w-4" />, component: BitLatticeFlowDiagram },
 ];
 
@@ -51,6 +53,8 @@ export default function Home() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <a href="/dashboard" className="text-[10px] text-white/40 hover:text-veda-accent transition-colors">Live Dashboard</a>
+          <a href="/domains" className="text-[10px] text-white/40 hover:text-veda-accent transition-colors">Domains</a>
           <span className="flex items-center gap-1.5 rounded-full border border-yellow-300/20 bg-yellow-300/10 px-2.5 py-1 text-[10px] font-medium text-yellow-300">
             <span className="h-1.5 w-1.5 rounded-full bg-yellow-300 animate-pulse" />
             Testnet
