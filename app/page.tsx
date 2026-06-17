@@ -9,6 +9,7 @@ import {
   Hexagon,
   BarChart3,
   Coins,
+  Radio,
 } from 'lucide-react';
 import SwarmStatusView from '@/components/SwarmStatusView';
 import EvidenceRegistryBrowser from '@/components/EvidenceRegistryBrowser';
@@ -18,8 +19,10 @@ import ArchitectureFlow from '@/components/ArchitectureFlow';
 import OverviewPanel from '@/components/OverviewPanel';
 import AgentEconomy from '@/components/AgentEconomy';
 import ReceiptExplorer from '@/components/ReceiptExplorer';
+import BountyLanding from '@/components/BountyLanding';
 
 const TABS = [
+  { id: 'bounty', label: 'Live Swarm', icon: <Radio className="h-4 w-4" />, component: BountyLanding },
   { id: 'overview', label: 'Overview', icon: <Hexagon className="h-4 w-4" />, component: OverviewPanel },
   { id: 'architecture', label: 'Architecture', icon: <Layers className="h-4 w-4" />, component: ArchitectureFlow },
   { id: 'swarm', label: 'Swarm', icon: <Activity className="h-4 w-4" />, component: SwarmStatusView },
@@ -31,9 +34,9 @@ const TABS = [
 ];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('bounty');
   const [tabKey, setTabKey] = useState(0);
-  const ActiveComponent = TABS.find((t) => t.id === activeTab)?.component ?? OverviewPanel;
+  const ActiveComponent = TABS.find((t) => t.id === activeTab)?.component ?? BountyLanding;
 
   const handleTabChange = (id: string) => {
     setActiveTab(id);
