@@ -1,556 +1,2550 @@
 {
   "topicId": "0.0.9227346",
   "network": "testnet",
-  "maxSequence": 338886,
-  "messageCount": 13,
-  "estimatedTps": 0.21666666666666667,
+  "maxSequence": 409823,
+  "messageCount": 46,
+  "estimatedTps": 68.78988306736449,
   "messages": [
     {
-      "sequenceNumber": 338886,
-      "consensusTimestamp": "1781747889.978194000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409822,
+      "consensusTimestamp": "1781749009.905747871",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-240",
-      "energyDataHash": "c16435e3c538d41d1c25b70defb9af08c6d398303be8ef08a77b096b6bdd1e22",
-      "decisionHash": "a62979a62128cb13e0509c9b8d6c1bd0f91d68f78790bb9d3fda0fa221e956aa",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007500-1180",
+      "energyDataHash": "6fa14ef4538dbf6a7583d31e1373cda91b39d59d0e9e07b285b27a560e879919",
+      "decisionHash": "2e66666510203a2fbd41b558653bfd6ce97bc9ff84b929c019c630db55b5322a",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-240",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1180",
         "period": "2026-06",
-        "energyDataHash": "c16435e3c538d41d1c25b70defb9af08c6d398303be8ef08a77b096b6bdd1e22",
-        "decisionHash": "a62979a62128cb13e0509c9b8d6c1bd0f91d68f78790bb9d3fda0fa221e956aa",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "6fa14ef4538dbf6a7583d31e1373cda91b39d59d0e9e07b285b27a560e879919",
+        "decisionHash": "2e66666510203a2fbd41b558653bfd6ce97bc9ff84b929c019c630db55b5322a",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889854,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009667,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "9ba6a86864dd24a20c8e2bbf1da51d1e812c7c4cd1ad450de9d2aabd26df1bf7",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-240@verification",
+        "stageHash": "5881008a54a4d20c9de653e6ca631b35ee5a41ec5602f1eed3c43a99f9354f15",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1180@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "c16435e3c538d41d1c25b70defb9af08c6d398303be8ef08a77b096b6bdd1e22",
-          "decisionHash": "a62979a62128cb13e0509c9b8d6c1bd0f91d68f78790bb9d3fda0fa221e956aa",
-          "stageHash": "9ba6a86864dd24a20c8e2bbf1da51d1e812c7c4cd1ad450de9d2aabd26df1bf7"
+          "dataHash": "6fa14ef4538dbf6a7583d31e1373cda91b39d59d0e9e07b285b27a560e879919",
+          "decisionHash": "2e66666510203a2fbd41b558653bfd6ce97bc9ff84b929c019c630db55b5322a",
+          "stageHash": "5881008a54a4d20c9de653e6ca631b35ee5a41ec5602f1eed3c43a99f9354f15"
         }
       }
     },
     {
-      "sequenceNumber": 338885,
-      "consensusTimestamp": "1781747889.978193000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409820,
+      "consensusTimestamp": "1781749009.902160000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-227",
-      "energyDataHash": "fc0b81895a2c8c535b60a939fbb522bca7dd3c93ca0a376a65471f61f28a45a5",
-      "decisionHash": "39f1eae69c79294ea2afa810a4f092dc4ae31e9d46106c4d47a8087cd02efb38",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1185",
+      "energyDataHash": "22ac40bf1fc32e1788f5c97d5a30796dc98b93a2ae1f777a580e9a28971da073",
+      "decisionHash": "f4f9e6c9e5925a01d8b54278ee4965b24f0ad901611ffa59333764a12e638b53",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-227",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1185",
         "period": "2026-06",
-        "energyDataHash": "fc0b81895a2c8c535b60a939fbb522bca7dd3c93ca0a376a65471f61f28a45a5",
-        "decisionHash": "39f1eae69c79294ea2afa810a4f092dc4ae31e9d46106c4d47a8087cd02efb38",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "22ac40bf1fc32e1788f5c97d5a30796dc98b93a2ae1f777a580e9a28971da073",
+        "decisionHash": "f4f9e6c9e5925a01d8b54278ee4965b24f0ad901611ffa59333764a12e638b53",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889837,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009520,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "b76a0aa280b5bb106657c4dd0ed5fa87ad8fbd20be86b8b2acc7640d1a474ddd",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-227@verification",
+        "stageHash": "4f8e8a62883ac6e8accdd339ecf06ddf2d71f379a87b4410d9622c617204a8a2",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1185@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "fc0b81895a2c8c535b60a939fbb522bca7dd3c93ca0a376a65471f61f28a45a5",
-          "decisionHash": "39f1eae69c79294ea2afa810a4f092dc4ae31e9d46106c4d47a8087cd02efb38",
-          "stageHash": "b76a0aa280b5bb106657c4dd0ed5fa87ad8fbd20be86b8b2acc7640d1a474ddd"
+          "dataHash": "22ac40bf1fc32e1788f5c97d5a30796dc98b93a2ae1f777a580e9a28971da073",
+          "decisionHash": "f4f9e6c9e5925a01d8b54278ee4965b24f0ad901611ffa59333764a12e638b53",
+          "stageHash": "4f8e8a62883ac6e8accdd339ecf06ddf2d71f379a87b4410d9622c617204a8a2"
         }
       }
     },
     {
-      "sequenceNumber": 338884,
-      "consensusTimestamp": "1781747889.978190422",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409819,
+      "consensusTimestamp": "1781749009.902159000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-234",
-      "energyDataHash": "f000bc5ede86c6a2100488867f3350186dce38137a78d16afd39ab6399c1e3f5",
-      "decisionHash": "13be658bd6e2e9a923a77ac5283dc76a6559d2f6c538272beac4c1a8de93e463",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1188",
+      "energyDataHash": "33d5ba11aa895effb63251ac34678e168c6133c68f98bd6185b0ce266ea354d1",
+      "decisionHash": "9eae8e3d8bf93ec4c57655a494801fdb314f6da89a9dd6fc70e50f64e20ec5b2",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-234",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1188",
         "period": "2026-06",
-        "energyDataHash": "f000bc5ede86c6a2100488867f3350186dce38137a78d16afd39ab6399c1e3f5",
-        "decisionHash": "13be658bd6e2e9a923a77ac5283dc76a6559d2f6c538272beac4c1a8de93e463",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "33d5ba11aa895effb63251ac34678e168c6133c68f98bd6185b0ce266ea354d1",
+        "decisionHash": "9eae8e3d8bf93ec4c57655a494801fdb314f6da89a9dd6fc70e50f64e20ec5b2",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889800,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009480,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "a234546fda3a7de8979dd47af3bc7f16493772269b4772d6f10200395a8bb8c4",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-234@verification",
+        "stageHash": "0ab879e20cad5f17039c25d58c69bc0d6cd0063d53e38a11dbd8713ce5d1c2cd",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1188@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "f000bc5ede86c6a2100488867f3350186dce38137a78d16afd39ab6399c1e3f5",
-          "decisionHash": "13be658bd6e2e9a923a77ac5283dc76a6559d2f6c538272beac4c1a8de93e463",
-          "stageHash": "a234546fda3a7de8979dd47af3bc7f16493772269b4772d6f10200395a8bb8c4"
+          "dataHash": "33d5ba11aa895effb63251ac34678e168c6133c68f98bd6185b0ce266ea354d1",
+          "decisionHash": "9eae8e3d8bf93ec4c57655a494801fdb314f6da89a9dd6fc70e50f64e20ec5b2",
+          "stageHash": "0ab879e20cad5f17039c25d58c69bc0d6cd0063d53e38a11dbd8713ce5d1c2cd"
         }
       }
     },
     {
-      "sequenceNumber": 338882,
-      "consensusTimestamp": "1781747889.931004502",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409818,
+      "consensusTimestamp": "1781749009.814113995",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-235",
-      "energyDataHash": "f3398d1d0809328df99a85d23e814477814dca818e5cc0632adb8a7e4ba0f11d",
-      "decisionHash": "255b5a0b9aaa77b48a54afedb3b17043d06326d9e53d98fb2ded2d9577228588",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007500-1176",
+      "energyDataHash": "898c0921912d594f1363afb940898b091d1f0c5c3462a258d0ea43864e9133dc",
+      "decisionHash": "335be4e2d6e3af246a374f9aa057eae0501c46c34ea31aaee50ce1886eca209e",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-235",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1176",
         "period": "2026-06",
-        "energyDataHash": "f3398d1d0809328df99a85d23e814477814dca818e5cc0632adb8a7e4ba0f11d",
-        "decisionHash": "255b5a0b9aaa77b48a54afedb3b17043d06326d9e53d98fb2ded2d9577228588",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "898c0921912d594f1363afb940898b091d1f0c5c3462a258d0ea43864e9133dc",
+        "decisionHash": "335be4e2d6e3af246a374f9aa057eae0501c46c34ea31aaee50ce1886eca209e",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889757,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009623,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "52da234105fdb13f58d0f1e0b3310ca99887c664d0b6ee03a2cc853bd732c798",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-235@verification",
+        "stageHash": "568d6f499e99d7bd6c7dc5d2e060cc5619e21d87993b152a21c17ad8c66e4f26",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1176@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "f3398d1d0809328df99a85d23e814477814dca818e5cc0632adb8a7e4ba0f11d",
-          "decisionHash": "255b5a0b9aaa77b48a54afedb3b17043d06326d9e53d98fb2ded2d9577228588",
-          "stageHash": "52da234105fdb13f58d0f1e0b3310ca99887c664d0b6ee03a2cc853bd732c798"
+          "dataHash": "898c0921912d594f1363afb940898b091d1f0c5c3462a258d0ea43864e9133dc",
+          "decisionHash": "335be4e2d6e3af246a374f9aa057eae0501c46c34ea31aaee50ce1886eca209e",
+          "stageHash": "568d6f499e99d7bd6c7dc5d2e060cc5619e21d87993b152a21c17ad8c66e4f26"
         }
       }
     },
     {
-      "sequenceNumber": 338881,
-      "consensusTimestamp": "1781747889.916966000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409817,
+      "consensusTimestamp": "1781749009.809364046",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-221",
-      "energyDataHash": "5329488612bb7f3cc7e5f4d6f7d7d9708d86f46c7f08d29ca86a5ea82435e2b1",
-      "decisionHash": "1931cbae6c99981bb0ec99fb767e8f6fe59160566950f4f8005102d2b942c065",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1197",
+      "energyDataHash": "7fe79e766b2797129f033cd9bbb7f61a4b5b3b8ef92a4341e5ac688d015735b8",
+      "decisionHash": "fc6260c736c5ec21c4f742825bac339626a189e14a76468f8984c3376f28d64b",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-221",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1197",
         "period": "2026-06",
-        "energyDataHash": "5329488612bb7f3cc7e5f4d6f7d7d9708d86f46c7f08d29ca86a5ea82435e2b1",
-        "decisionHash": "1931cbae6c99981bb0ec99fb767e8f6fe59160566950f4f8005102d2b942c065",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "7fe79e766b2797129f033cd9bbb7f61a4b5b3b8ef92a4341e5ac688d015735b8",
+        "decisionHash": "fc6260c736c5ec21c4f742825bac339626a189e14a76468f8984c3376f28d64b",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889783,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009499,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "eccb97d4d2d5e2e3e48ff4194da1e4c6ac3290c2152e95b14f8d6f6fda269644",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-221@verification",
+        "stageHash": "12f12df3bb2c609258bd97270294cc437e173df82d1275acceb46a50f55daafe",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1197@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "5329488612bb7f3cc7e5f4d6f7d7d9708d86f46c7f08d29ca86a5ea82435e2b1",
-          "decisionHash": "1931cbae6c99981bb0ec99fb767e8f6fe59160566950f4f8005102d2b942c065",
-          "stageHash": "eccb97d4d2d5e2e3e48ff4194da1e4c6ac3290c2152e95b14f8d6f6fda269644"
+          "dataHash": "7fe79e766b2797129f033cd9bbb7f61a4b5b3b8ef92a4341e5ac688d015735b8",
+          "decisionHash": "fc6260c736c5ec21c4f742825bac339626a189e14a76468f8984c3376f28d64b",
+          "stageHash": "12f12df3bb2c609258bd97270294cc437e173df82d1275acceb46a50f55daafe"
         }
       }
     },
     {
-      "sequenceNumber": 338880,
-      "consensusTimestamp": "1781747889.916964000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409816,
+      "consensusTimestamp": "1781749009.787920000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887847-215",
-      "energyDataHash": "307eb40c9a2516c39fe3d3c63988b3bc704a24e51b1ca3eec00202a785bab5aa",
-      "decisionHash": "ecc3be0c4d593f635d58f862318814425c775e82a94c041b41252eb05de03ee9",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1196",
+      "energyDataHash": "a727f10b048315ab4302819696ff2a639ee5b50507793f1e430cc8bc53d41d78",
+      "decisionHash": "56cb9d244b1f393315648d9a107a8884777d1633811b9ba1cd149fd4f858fb56",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887847-215",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1196",
         "period": "2026-06",
-        "energyDataHash": "307eb40c9a2516c39fe3d3c63988b3bc704a24e51b1ca3eec00202a785bab5aa",
-        "decisionHash": "ecc3be0c4d593f635d58f862318814425c775e82a94c041b41252eb05de03ee9",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "a727f10b048315ab4302819696ff2a639ee5b50507793f1e430cc8bc53d41d78",
+        "decisionHash": "56cb9d244b1f393315648d9a107a8884777d1633811b9ba1cd149fd4f858fb56",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889753,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009462,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "13f09ef619356e43af2a524e315f97c39e42a38b4325329316a02886a54e27f3",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887847-215@verification",
+        "stageHash": "ea49c4812b91281e7c500835a500bca9f4a0b1653059f503f1acdb246865f997",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1196@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "307eb40c9a2516c39fe3d3c63988b3bc704a24e51b1ca3eec00202a785bab5aa",
-          "decisionHash": "ecc3be0c4d593f635d58f862318814425c775e82a94c041b41252eb05de03ee9",
-          "stageHash": "13f09ef619356e43af2a524e315f97c39e42a38b4325329316a02886a54e27f3"
+          "dataHash": "a727f10b048315ab4302819696ff2a639ee5b50507793f1e430cc8bc53d41d78",
+          "decisionHash": "56cb9d244b1f393315648d9a107a8884777d1633811b9ba1cd149fd4f858fb56",
+          "stageHash": "ea49c4812b91281e7c500835a500bca9f4a0b1653059f503f1acdb246865f997"
         }
       }
     },
     {
-      "sequenceNumber": 338874,
-      "consensusTimestamp": "1781747889.886364000",
+      "sequenceNumber": 409815,
+      "consensusTimestamp": "1781749009.787918652",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1186",
+      "energyDataHash": "d7f56e9d0f3761609d4b283ce80d7310a81ed04baf1c40ae17055a15c5c22132",
+      "decisionHash": "f20f7a10bc43ba082af7a97ce4eb904b8eac5f05de4950388a5f1048d0eceb23",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1186",
+        "period": "2026-06",
+        "energyDataHash": "d7f56e9d0f3761609d4b283ce80d7310a81ed04baf1c40ae17055a15c5c22132",
+        "decisionHash": "f20f7a10bc43ba082af7a97ce4eb904b8eac5f05de4950388a5f1048d0eceb23",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009559,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "35b56c96dc18b0dfb3dd350ce2e91d91238616b1445f4e6913f15860c196f3b0",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1186@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "d7f56e9d0f3761609d4b283ce80d7310a81ed04baf1c40ae17055a15c5c22132",
+          "decisionHash": "f20f7a10bc43ba082af7a97ce4eb904b8eac5f05de4950388a5f1048d0eceb23",
+          "stageHash": "35b56c96dc18b0dfb3dd350ce2e91d91238616b1445f4e6913f15860c196f3b0"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409814,
+      "consensusTimestamp": "1781749009.787917652",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007500-1172",
+      "energyDataHash": "e9aa08f5a5053c8991bb18c55748eef63c7474ba9defd4c4c10f9449a7a4b260",
+      "decisionHash": "024ac1eef73e5edab8713c95f563e5f617156a3b8bae803aa06ff4a3cb06c313",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1172",
+        "period": "2026-06",
+        "energyDataHash": "e9aa08f5a5053c8991bb18c55748eef63c7474ba9defd4c4c10f9449a7a4b260",
+        "decisionHash": "024ac1eef73e5edab8713c95f563e5f617156a3b8bae803aa06ff4a3cb06c313",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009471,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "3173418db7927a962509e918b45290679e4212ce2eeb16d3f9439a2bb9a28d63",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1172@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "e9aa08f5a5053c8991bb18c55748eef63c7474ba9defd4c4c10f9449a7a4b260",
+          "decisionHash": "024ac1eef73e5edab8713c95f563e5f617156a3b8bae803aa06ff4a3cb06c313",
+          "stageHash": "3173418db7927a962509e918b45290679e4212ce2eeb16d3f9439a2bb9a28d63"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409813,
+      "consensusTimestamp": "1781749009.786647000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1200",
+      "energyDataHash": "6f6166edc6f282149bd78d95dd9e222cc1447fe53dd79a361d2c7807a1c4b870",
+      "decisionHash": "00302a1313b5dc9b0c2857429b3d85976d9b6b78e860bad9b68f85577e3d47ff",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1200",
+        "period": "2026-06",
+        "energyDataHash": "6f6166edc6f282149bd78d95dd9e222cc1447fe53dd79a361d2c7807a1c4b870",
+        "decisionHash": "00302a1313b5dc9b0c2857429b3d85976d9b6b78e860bad9b68f85577e3d47ff",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009451,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "74e4d3fa3be76399b5f4c60df9e0135fbcbb80cd4823ed5110169951591508b6",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1200@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "6f6166edc6f282149bd78d95dd9e222cc1447fe53dd79a361d2c7807a1c4b870",
+          "decisionHash": "00302a1313b5dc9b0c2857429b3d85976d9b6b78e860bad9b68f85577e3d47ff",
+          "stageHash": "74e4d3fa3be76399b5f4c60df9e0135fbcbb80cd4823ed5110169951591508b6"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409812,
+      "consensusTimestamp": "1781749009.786646000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1195",
+      "energyDataHash": "bcab321e44ed27922b8deceee58ff26e688280709a47b0c265898420dd992a6e",
+      "decisionHash": "641e315d40dee8a4b084ff9aa28cd0f39b8e1dfbdd7ec677745b9693acde22c8",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1195",
+        "period": "2026-06",
+        "energyDataHash": "bcab321e44ed27922b8deceee58ff26e688280709a47b0c265898420dd992a6e",
+        "decisionHash": "641e315d40dee8a4b084ff9aa28cd0f39b8e1dfbdd7ec677745b9693acde22c8",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009529,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "88f8c72543ad9473c35312056f0187fb4f874869c2489b39eee98fbf75bd715e",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1195@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "bcab321e44ed27922b8deceee58ff26e688280709a47b0c265898420dd992a6e",
+          "decisionHash": "641e315d40dee8a4b084ff9aa28cd0f39b8e1dfbdd7ec677745b9693acde22c8",
+          "stageHash": "88f8c72543ad9473c35312056f0187fb4f874869c2489b39eee98fbf75bd715e"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409811,
+      "consensusTimestamp": "1781749009.786644681",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007500-1173",
+      "energyDataHash": "75cd0f3d52674ef17898e47aa633fe65acd8fc72ac8097e6b1c48d56b67be55a",
+      "decisionHash": "309e4f08ca48893c95b596c65580d01ad4515924f0e5afadb1c4d30f6c6cc8da",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1173",
+        "period": "2026-06",
+        "energyDataHash": "75cd0f3d52674ef17898e47aa633fe65acd8fc72ac8097e6b1c48d56b67be55a",
+        "decisionHash": "309e4f08ca48893c95b596c65580d01ad4515924f0e5afadb1c4d30f6c6cc8da",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009540,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "a2fb0150ff1a68d30062a138e82da0f15b24273dbe37b91ff39f9239255bf49a",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1173@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "75cd0f3d52674ef17898e47aa633fe65acd8fc72ac8097e6b1c48d56b67be55a",
+          "decisionHash": "309e4f08ca48893c95b596c65580d01ad4515924f0e5afadb1c4d30f6c6cc8da",
+          "stageHash": "a2fb0150ff1a68d30062a138e82da0f15b24273dbe37b91ff39f9239255bf49a"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409810,
+      "consensusTimestamp": "1781749009.781880000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1190",
+      "energyDataHash": "8cb82f241274786c8d873806b22e530c5fda8550e837b3eb0fc270d2cca7e83b",
+      "decisionHash": "6c153906f2359bdbd389a660b88e9f1818dab5a9266a0e36a39aca60c3460361",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1190",
+        "period": "2026-06",
+        "energyDataHash": "8cb82f241274786c8d873806b22e530c5fda8550e837b3eb0fc270d2cca7e83b",
+        "decisionHash": "6c153906f2359bdbd389a660b88e9f1818dab5a9266a0e36a39aca60c3460361",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009549,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "0bc3dd0500004719430dc3d1dc4c3d5869dbf0329dade49a6c91e926ad6ff83b",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1190@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "8cb82f241274786c8d873806b22e530c5fda8550e837b3eb0fc270d2cca7e83b",
+          "decisionHash": "6c153906f2359bdbd389a660b88e9f1818dab5a9266a0e36a39aca60c3460361",
+          "stageHash": "0bc3dd0500004719430dc3d1dc4c3d5869dbf0329dade49a6c91e926ad6ff83b"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409808,
+      "consensusTimestamp": "1781749009.781878000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1192",
+      "energyDataHash": "b784c213ecb6298c4e412378e60535f56d0d59282656552e50083fc9611fabfe",
+      "decisionHash": "c5fa3c3ca08dc75fed3b14c32930b408a1b471ca88ffa296438722b70cebb160",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1192",
+        "period": "2026-06",
+        "energyDataHash": "b784c213ecb6298c4e412378e60535f56d0d59282656552e50083fc9611fabfe",
+        "decisionHash": "c5fa3c3ca08dc75fed3b14c32930b408a1b471ca88ffa296438722b70cebb160",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009427,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "a6c28318270f71d52c7ec0b2da2be7710748362487aba42ccf07a8260a26a585",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1192@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "b784c213ecb6298c4e412378e60535f56d0d59282656552e50083fc9611fabfe",
+          "decisionHash": "c5fa3c3ca08dc75fed3b14c32930b408a1b471ca88ffa296438722b70cebb160",
+          "stageHash": "a6c28318270f71d52c7ec0b2da2be7710748362487aba42ccf07a8260a26a585"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409805,
+      "consensusTimestamp": "1781749009.781874478",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1183",
+      "energyDataHash": "33db192f157454dcfd2a74bb2959d3da5d8feaf6a2c57225ceca21066773854f",
+      "decisionHash": "e2e167127f784a77a05b996b3e47b3e66f668614ec0748fe26115a30c8fdc334",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1183",
+        "period": "2026-06",
+        "energyDataHash": "33db192f157454dcfd2a74bb2959d3da5d8feaf6a2c57225ceca21066773854f",
+        "decisionHash": "e2e167127f784a77a05b996b3e47b3e66f668614ec0748fe26115a30c8fdc334",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009342,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "74659f3719f7100a850180bb1b0dcb9fb4a51da92bc8db53aa416585fa7ef709",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1183@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "33db192f157454dcfd2a74bb2959d3da5d8feaf6a2c57225ceca21066773854f",
+          "decisionHash": "e2e167127f784a77a05b996b3e47b3e66f668614ec0748fe26115a30c8fdc334",
+          "stageHash": "74659f3719f7100a850180bb1b0dcb9fb4a51da92bc8db53aa416585fa7ef709"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409803,
+      "consensusTimestamp": "1781749009.752504376",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007500-1178",
+      "energyDataHash": "9e100a3c7acee424c06ccf21760714063dfa1747eb2ea2d0a965200ae9497a8e",
+      "decisionHash": "b66d92b71b5b59b4cbb70ef40032cbfcdb62c72183f1e4314c15a6b9f5b82d86",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1178",
+        "period": "2026-06",
+        "energyDataHash": "9e100a3c7acee424c06ccf21760714063dfa1747eb2ea2d0a965200ae9497a8e",
+        "decisionHash": "b66d92b71b5b59b4cbb70ef40032cbfcdb62c72183f1e4314c15a6b9f5b82d86",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009489,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "57a2c504193ca3a258ba9efdcbd02feedea907d66b032a175fd4e0c584c56444",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1178@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "9e100a3c7acee424c06ccf21760714063dfa1747eb2ea2d0a965200ae9497a8e",
+          "decisionHash": "b66d92b71b5b59b4cbb70ef40032cbfcdb62c72183f1e4314c15a6b9f5b82d86",
+          "stageHash": "57a2c504193ca3a258ba9efdcbd02feedea907d66b032a175fd4e0c584c56444"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409802,
+      "consensusTimestamp": "1781749009.638906000",
+      "type": "vnx.sc.provenance.attested",
+      "domain": "supply-chain",
+      "stage": "attestation",
+      "batchId": "sc-off-737628064502-1781749006120-1385",
+      "energyDataHash": "cb2d465c7ecf76687a273ba4f1e969b061bcd2d7cc7f07bc9ef323fb81f00090",
+      "decisionHash": "d3f37e8d69d859adc6663ce39741065246724c811de6032a75f7a2e3804b6f96",
+      "previousStageHash": "d729528aed96a4068303cae4f0f1b000a8d723a88ab28979b5ae22015bcf8e59",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.sc.provenance.attested",
+        "batchId": "sc-off-737628064502-1781749006120-1385",
+        "period": "2026-06",
+        "energyDataHash": "cb2d465c7ecf76687a273ba4f1e969b061bcd2d7cc7f07bc9ef323fb81f00090",
+        "decisionHash": "d3f37e8d69d859adc6663ce39741065246724c811de6032a75f7a2e3804b6f96",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "previousStageHash": "d729528aed96a4068303cae4f0f1b000a8d723a88ab28979b5ae22015bcf8e59",
+        "stage": "attestation",
+        "claimId": "sc-off-737628064502-1781749006120-1385",
+        "sku": "OFF-737628064502",
+        "origin": "Thailand",
+        "custodyEvents": 3,
+        "domain": "sc.provenance",
+        "provenance": "Thailand",
+        "timestamp": 1781749009465,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "42f270f565868e5cad9eb7ade3896f687be1269fd41b01a06d775f2d13c0c999",
+        "messageId": "vnx.sc.provenance.attested@sc-off-737628064502-1781749006120-1385@attestation",
+        "liveData": {
+          "provenance": "Thailand",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "cb2d465c7ecf76687a273ba4f1e969b061bcd2d7cc7f07bc9ef323fb81f00090",
+          "decisionHash": "d3f37e8d69d859adc6663ce39741065246724c811de6032a75f7a2e3804b6f96",
+          "previousStageHash": "d729528aed96a4068303cae4f0f1b000a8d723a88ab28979b5ae22015bcf8e59",
+          "stageHash": "42f270f565868e5cad9eb7ade3896f687be1269fd41b01a06d775f2d13c0c999"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409799,
+      "consensusTimestamp": "1781749009.752502376",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1198",
+      "energyDataHash": "6885cc3f77c6c9c910f4ae07fd18c89a159104a8b3d7436fe35cdb1ee79a4379",
+      "decisionHash": "905dfe84042f45b8d48e4ce07128a3867fabd7875dda2ced92c62e55f1a234d2",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1198",
+        "period": "2026-06",
+        "energyDataHash": "6885cc3f77c6c9c910f4ae07fd18c89a159104a8b3d7436fe35cdb1ee79a4379",
+        "decisionHash": "905dfe84042f45b8d48e4ce07128a3867fabd7875dda2ced92c62e55f1a234d2",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009330,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "05bce963e53b2919bb4a56c61fe2faeffb310d925d45ec1a609e3716d388edcf",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1198@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "6885cc3f77c6c9c910f4ae07fd18c89a159104a8b3d7436fe35cdb1ee79a4379",
+          "decisionHash": "905dfe84042f45b8d48e4ce07128a3867fabd7875dda2ced92c62e55f1a234d2",
+          "stageHash": "05bce963e53b2919bb4a56c61fe2faeffb310d925d45ec1a609e3716d388edcf"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409797,
+      "consensusTimestamp": "1781749009.752500376",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1184",
+      "energyDataHash": "2b77d4e91d2acef46cd651b86adf0bcb52dc235424741689ea494b32b945f0e9",
+      "decisionHash": "f13c41e5e19f895d2c65bed760f13ce5f6337ad8583abd40fde2d7b7b576da8c",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1184",
+        "period": "2026-06",
+        "energyDataHash": "2b77d4e91d2acef46cd651b86adf0bcb52dc235424741689ea494b32b945f0e9",
+        "decisionHash": "f13c41e5e19f895d2c65bed760f13ce5f6337ad8583abd40fde2d7b7b576da8c",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009287,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "5f86534c193a98fe030bdc59712ce9469e9679f6c01b536d9f0f1dcc04b19fe8",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1184@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "2b77d4e91d2acef46cd651b86adf0bcb52dc235424741689ea494b32b945f0e9",
+          "decisionHash": "f13c41e5e19f895d2c65bed760f13ce5f6337ad8583abd40fde2d7b7b576da8c",
+          "stageHash": "5f86534c193a98fe030bdc59712ce9469e9679f6c01b536d9f0f1dcc04b19fe8"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409795,
+      "consensusTimestamp": "1781749009.735262755",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1182",
+      "energyDataHash": "d8d87fc779950185cd71776b6cb9de2396e8be810e9ae3609fd41410892f0942",
+      "decisionHash": "c4461fef533c785abf37248c712e3055a7df61f09dcce1e43d588cf267747e3a",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1182",
+        "period": "2026-06",
+        "energyDataHash": "d8d87fc779950185cd71776b6cb9de2396e8be810e9ae3609fd41410892f0942",
+        "decisionHash": "c4461fef533c785abf37248c712e3055a7df61f09dcce1e43d588cf267747e3a",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009441,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "8c54c22c81adf0ca35c9d1546f8e8918344241e2dea48ef89c3940712183670e",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1182@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "d8d87fc779950185cd71776b6cb9de2396e8be810e9ae3609fd41410892f0942",
+          "decisionHash": "c4461fef533c785abf37248c712e3055a7df61f09dcce1e43d588cf267747e3a",
+          "stageHash": "8c54c22c81adf0ca35c9d1546f8e8918344241e2dea48ef89c3940712183670e"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409794,
+      "consensusTimestamp": "1781749009.708574000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1191",
+      "energyDataHash": "c262aff678689ddf19fca85ab6619257794544c570b5cb470c0f37cef376ece9",
+      "decisionHash": "a3ddd9d98513af122a4021c2bc8f992135ac125a4382c33b032548a58addead6",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1191",
+        "period": "2026-06",
+        "energyDataHash": "c262aff678689ddf19fca85ab6619257794544c570b5cb470c0f37cef376ece9",
+        "decisionHash": "a3ddd9d98513af122a4021c2bc8f992135ac125a4382c33b032548a58addead6",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009351,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "ee3cd1112c51f70559bb3e609aa0b2ef3ee8d04aa35c3dc0aca7d726be27c8e2",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1191@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "c262aff678689ddf19fca85ab6619257794544c570b5cb470c0f37cef376ece9",
+          "decisionHash": "a3ddd9d98513af122a4021c2bc8f992135ac125a4382c33b032548a58addead6",
+          "stageHash": "ee3cd1112c51f70559bb3e609aa0b2ef3ee8d04aa35c3dc0aca7d726be27c8e2"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409790,
+      "consensusTimestamp": "1781749009.708568000",
       "type": "vnx.supply.chain.data.verified",
       "domain": "unknown",
       "stage": "verification",
-      "batchId": "sc-off-737628064502-1781747887895-265",
-      "energyDataHash": "cd12901fe6d59a394866e7cd60087b1405edb23ed931ce1adcf88ee901d0cdff",
-      "decisionHash": "7d14756ba7b408c07433b7e2947adb7ce0a49416b80ebd82ebe1690a36e3af01",
+      "batchId": "sc-off-3017620422003-1781749007718-1396",
+      "energyDataHash": "70460012636edac84c0cdb973b5276f08da17f9dd4e4c3b3eb0948e9d3422f9a",
+      "decisionHash": "c83a4287d86feac7b6aeb6941b3dd72f72b4465a7ee11a533ab9417d8e0bd442",
       "winnerWorker": "attest-gate",
       "verified": true,
       "raw": {
         "type": "vnx.supply.chain.data.verified",
-        "batchId": "sc-off-737628064502-1781747887895-265",
+        "batchId": "sc-off-3017620422003-1781749007718-1396",
         "period": "2026-06",
-        "energyDataHash": "cd12901fe6d59a394866e7cd60087b1405edb23ed931ce1adcf88ee901d0cdff",
-        "decisionHash": "7d14756ba7b408c07433b7e2947adb7ce0a49416b80ebd82ebe1690a36e3af01",
+        "energyDataHash": "70460012636edac84c0cdb973b5276f08da17f9dd4e4c3b3eb0948e9d3422f9a",
+        "decisionHash": "c83a4287d86feac7b6aeb6941b3dd72f72b4465a7ee11a533ab9417d8e0bd442",
         "winnerWorker": "attest-gate",
         "verified": true,
         "latticeScore": 1,
         "domain": "supply.chain",
         "stage": "verification",
-        "timestamp": 1781747889712,
+        "provenance": "openfoodfacts-api",
+        "sourceRef": "OFF-3017620422003",
+        "timestamp": 1781749009351,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "5197aefadfb2b79b6827f2bbf1ab90c8ab1b0f27e869b1dc8bbb079e8e09b564",
-        "messageId": "vnx.supply.chain.data.verified@sc-off-737628064502-1781747887895-265@verification",
+        "stageHash": "b58b9f9ca7f86b262e43e2261cc1a7922a9390fb1311881b7f1ad71dda3aa878",
+        "messageId": "vnx.supply.chain.data.verified@sc-off-3017620422003-1781749007718-1396@verification",
+        "liveData": {
+          "provenance": "openfoodfacts-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "cd12901fe6d59a394866e7cd60087b1405edb23ed931ce1adcf88ee901d0cdff",
-          "decisionHash": "7d14756ba7b408c07433b7e2947adb7ce0a49416b80ebd82ebe1690a36e3af01",
-          "stageHash": "5197aefadfb2b79b6827f2bbf1ab90c8ab1b0f27e869b1dc8bbb079e8e09b564"
+          "dataHash": "70460012636edac84c0cdb973b5276f08da17f9dd4e4c3b3eb0948e9d3422f9a",
+          "decisionHash": "c83a4287d86feac7b6aeb6941b3dd72f72b4465a7ee11a533ab9417d8e0bd442",
+          "stageHash": "b58b9f9ca7f86b262e43e2261cc1a7922a9390fb1311881b7f1ad71dda3aa878"
         }
       }
     },
     {
-      "sequenceNumber": 338870,
-      "consensusTimestamp": "1781747889.886358000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409788,
+      "consensusTimestamp": "1781749009.597200000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-225",
-      "energyDataHash": "b307a52709e103785637ed493f23e2ced0862e77c3db5648753d47252cb8580f",
-      "decisionHash": "dbef3a5868597733005700322a9cc3fbb2b6a1908cc13cf7f84c0a605696e581",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007500-1175",
+      "energyDataHash": "b2fd4c0726749e3e155b46653b5901d8b7c502559a8820de7953993d9d63bb43",
+      "decisionHash": "68010265ce585f045e2d811e86ebc9bde56dbdd7fd915bbc8af4924968a3191d",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-225",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1175",
         "period": "2026-06",
-        "energyDataHash": "b307a52709e103785637ed493f23e2ced0862e77c3db5648753d47252cb8580f",
-        "decisionHash": "dbef3a5868597733005700322a9cc3fbb2b6a1908cc13cf7f84c0a605696e581",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "b2fd4c0726749e3e155b46653b5901d8b7c502559a8820de7953993d9d63bb43",
+        "decisionHash": "68010265ce585f045e2d811e86ebc9bde56dbdd7fd915bbc8af4924968a3191d",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889602,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009271,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "71f7b4814d19ad46533fddcd2367bc4d4726f873f2e888f27c652f68d1d62f3d",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-225@verification",
+        "stageHash": "5b90bd7e7c90300f0a7be56c8f82b4feb7def74bfea81a729cecde49fa885536",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1175@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "b307a52709e103785637ed493f23e2ced0862e77c3db5648753d47252cb8580f",
-          "decisionHash": "dbef3a5868597733005700322a9cc3fbb2b6a1908cc13cf7f84c0a605696e581",
-          "stageHash": "71f7b4814d19ad46533fddcd2367bc4d4726f873f2e888f27c652f68d1d62f3d"
+          "dataHash": "b2fd4c0726749e3e155b46653b5901d8b7c502559a8820de7953993d9d63bb43",
+          "decisionHash": "68010265ce585f045e2d811e86ebc9bde56dbdd7fd915bbc8af4924968a3191d",
+          "stageHash": "5b90bd7e7c90300f0a7be56c8f82b4feb7def74bfea81a729cecde49fa885536"
         }
       }
     },
     {
-      "sequenceNumber": 338869,
-      "consensusTimestamp": "1781747889.886357000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409787,
+      "consensusTimestamp": "1781749009.699419000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887847-217",
-      "energyDataHash": "6d933469fec2cface0dc2931c08a942fb818cb34587544de3e477d1323931445",
-      "decisionHash": "d6c1c6c34f83097189cc835f9afbe8c382c6b7aee5036b201e42e0b064a98dbb",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1199",
+      "energyDataHash": "794faf97098d668aa3c85259cf189075f8ab598440ca19fa29c9b0557948a0ed",
+      "decisionHash": "e622fc9ddd9d94c1d194c64e836637a29da930aa9ea080019b54a21e19e19a6a",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887847-217",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1199",
         "period": "2026-06",
-        "energyDataHash": "6d933469fec2cface0dc2931c08a942fb818cb34587544de3e477d1323931445",
-        "decisionHash": "d6c1c6c34f83097189cc835f9afbe8c382c6b7aee5036b201e42e0b064a98dbb",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "794faf97098d668aa3c85259cf189075f8ab598440ca19fa29c9b0557948a0ed",
+        "decisionHash": "e622fc9ddd9d94c1d194c64e836637a29da930aa9ea080019b54a21e19e19a6a",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889629,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009391,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "50914fc8bf094a6aa577ce36302613fcfaac19351af898fdae4c8a2bea75326a",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887847-217@verification",
+        "stageHash": "aac31512e6ae126418aed73a1bbe753af1061a2533df10cc6e0adfe1d9e59004",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1199@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "6d933469fec2cface0dc2931c08a942fb818cb34587544de3e477d1323931445",
-          "decisionHash": "d6c1c6c34f83097189cc835f9afbe8c382c6b7aee5036b201e42e0b064a98dbb",
-          "stageHash": "50914fc8bf094a6aa577ce36302613fcfaac19351af898fdae4c8a2bea75326a"
+          "dataHash": "794faf97098d668aa3c85259cf189075f8ab598440ca19fa29c9b0557948a0ed",
+          "decisionHash": "e622fc9ddd9d94c1d194c64e836637a29da930aa9ea080019b54a21e19e19a6a",
+          "stageHash": "aac31512e6ae126418aed73a1bbe753af1061a2533df10cc6e0adfe1d9e59004"
         }
       }
     },
     {
-      "sequenceNumber": 338868,
-      "consensusTimestamp": "1781747889.886354000",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409784,
+      "consensusTimestamp": "1781749009.663355000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-229",
-      "energyDataHash": "b7f0d74335eb8296fdd0ce33d0cc044ceba6ffa6463222331ae5f57e0b5c9e3d",
-      "decisionHash": "8be7cf87fe3ef86361019f22a07d9355f08cba0de400b2eff49683d1552c5e0f",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007540-1181",
+      "energyDataHash": "33b576c072655601dd67bcc0ba2246ce73fa277cc1ea82a0d01ea7381d2472a7",
+      "decisionHash": "a19da2aa7c5791f4ea0b0dbb86c3fe5799ad7f4da27070da75ae46abeec1eb78",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-229",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1181",
         "period": "2026-06",
-        "energyDataHash": "b7f0d74335eb8296fdd0ce33d0cc044ceba6ffa6463222331ae5f57e0b5c9e3d",
-        "decisionHash": "8be7cf87fe3ef86361019f22a07d9355f08cba0de400b2eff49683d1552c5e0f",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "33b576c072655601dd67bcc0ba2246ce73fa277cc1ea82a0d01ea7381d2472a7",
+        "decisionHash": "a19da2aa7c5791f4ea0b0dbb86c3fe5799ad7f4da27070da75ae46abeec1eb78",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889750,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009253,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "d270e59980aaa61bc69fffb9c77c8cfe00914a031178cea661cfe55c2e370116",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-229@verification",
+        "stageHash": "a82d11a701765c0d05da49eea38d475f4a480dad119a465fc9701d5f477a45ba",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1181@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "b7f0d74335eb8296fdd0ce33d0cc044ceba6ffa6463222331ae5f57e0b5c9e3d",
-          "decisionHash": "8be7cf87fe3ef86361019f22a07d9355f08cba0de400b2eff49683d1552c5e0f",
-          "stageHash": "d270e59980aaa61bc69fffb9c77c8cfe00914a031178cea661cfe55c2e370116"
+          "dataHash": "33b576c072655601dd67bcc0ba2246ce73fa277cc1ea82a0d01ea7381d2472a7",
+          "decisionHash": "a19da2aa7c5791f4ea0b0dbb86c3fe5799ad7f4da27070da75ae46abeec1eb78",
+          "stageHash": "a82d11a701765c0d05da49eea38d475f4a480dad119a465fc9701d5f477a45ba"
         }
       }
     },
     {
-      "sequenceNumber": 338866,
-      "consensusTimestamp": "1781747889.886351352",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409783,
+      "consensusTimestamp": "1781749009.663354000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887847-213",
-      "energyDataHash": "755610eb11339359de414efa164d5abc27cb74cc2ce7c61ae2b00e743d4537bd",
-      "decisionHash": "7e53912c0060cec62a04f98fed620614aeb328a5051cac06ebc3feb20b14a0f9",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007500-1171",
+      "energyDataHash": "b81403792e45fb3f5717b8843406da98680065b93c693ba0ebd3bd6780d25bf1",
+      "decisionHash": "ede0b02683adf9521309f17943f885f44caef0a35a01ee7723b583c47b355e53",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887847-213",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1171",
         "period": "2026-06",
-        "energyDataHash": "755610eb11339359de414efa164d5abc27cb74cc2ce7c61ae2b00e743d4537bd",
-        "decisionHash": "7e53912c0060cec62a04f98fed620614aeb328a5051cac06ebc3feb20b14a0f9",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "b81403792e45fb3f5717b8843406da98680065b93c693ba0ebd3bd6780d25bf1",
+        "decisionHash": "ede0b02683adf9521309f17943f885f44caef0a35a01ee7723b583c47b355e53",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889748,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009194,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "dba498ab7c6adf67488af79d6edc30320bb052263b03303ae496385ea50509e8",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887847-213@verification",
+        "stageHash": "c2de27e2a843f9f9f6b47c912e6a8b0aa26ccc4691b39d22bc13dc38f0722127",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1171@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "755610eb11339359de414efa164d5abc27cb74cc2ce7c61ae2b00e743d4537bd",
-          "decisionHash": "7e53912c0060cec62a04f98fed620614aeb328a5051cac06ebc3feb20b14a0f9",
-          "stageHash": "dba498ab7c6adf67488af79d6edc30320bb052263b03303ae496385ea50509e8"
+          "dataHash": "b81403792e45fb3f5717b8843406da98680065b93c693ba0ebd3bd6780d25bf1",
+          "decisionHash": "ede0b02683adf9521309f17943f885f44caef0a35a01ee7723b583c47b355e53",
+          "stageHash": "c2de27e2a843f9f9f6b47c912e6a8b0aa26ccc4691b39d22bc13dc38f0722127"
         }
       }
     },
     {
-      "sequenceNumber": 338864,
-      "consensusTimestamp": "1781747889.854226350",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409782,
+      "consensusTimestamp": "1781749009.663353000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-231",
-      "energyDataHash": "89b4d8ef7ddc73227d652c02df4e6e62a5e4cf2410e9a464a953f3b51a557581",
-      "decisionHash": "164f4b8d3a56358ceafeb74ea7c541ab6fd80253176cc4786ca53f0b24000908",
-      "winnerWorker": "custodian-auditor",
+      "batchId": "ai-inference-1781749007500-1179",
+      "energyDataHash": "f4acbb758d7d29e76dfcbcef67ca8334d2dec426a3eeb4184188fd51182e6029",
+      "decisionHash": "d9b8ef16e6a250b36ce970268ed081613a5015673325b8ed37c71588d343a4d1",
+      "winnerWorker": "provider-auditor",
       "verified": true,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-231",
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1179",
         "period": "2026-06",
-        "energyDataHash": "89b4d8ef7ddc73227d652c02df4e6e62a5e4cf2410e9a464a953f3b51a557581",
-        "decisionHash": "164f4b8d3a56358ceafeb74ea7c541ab6fd80253176cc4786ca53f0b24000908",
-        "winnerWorker": "custodian-auditor",
+        "energyDataHash": "f4acbb758d7d29e76dfcbcef67ca8334d2dec426a3eeb4184188fd51182e6029",
+        "decisionHash": "d9b8ef16e6a250b36ce970268ed081613a5015673325b8ed37c71588d343a4d1",
+        "winnerWorker": "provider-auditor",
         "verified": true,
         "latticeScore": 1,
-        "domain": "rwa.claim",
+        "domain": "ai.inference",
         "stage": "verification",
-        "timestamp": 1781747889614,
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009164,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "643906feb555f2ba5c3cb80cc2c430a6c8709711e5a088e08bb28fc43a436725",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-231@verification",
+        "stageHash": "1e36c5f6d1db31386ff5dc5265e1fab575f5f3c941012a206c7eb438324f6bf9",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1179@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
         "proof": {
-          "dataHash": "89b4d8ef7ddc73227d652c02df4e6e62a5e4cf2410e9a464a953f3b51a557581",
-          "decisionHash": "164f4b8d3a56358ceafeb74ea7c541ab6fd80253176cc4786ca53f0b24000908",
-          "stageHash": "643906feb555f2ba5c3cb80cc2c430a6c8709711e5a088e08bb28fc43a436725"
+          "dataHash": "f4acbb758d7d29e76dfcbcef67ca8334d2dec426a3eeb4184188fd51182e6029",
+          "decisionHash": "d9b8ef16e6a250b36ce970268ed081613a5015673325b8ed37c71588d343a4d1",
+          "stageHash": "1e36c5f6d1db31386ff5dc5265e1fab575f5f3c941012a206c7eb438324f6bf9"
         }
       }
     },
     {
-      "sequenceNumber": 338860,
-      "consensusTimestamp": "1781747889.849573636",
-      "type": "vnx.rwa.claim.data.verified",
-      "domain": "rwa-claim",
+      "sequenceNumber": 409776,
+      "consensusTimestamp": "1781749009.638901469",
+      "type": "vnx.supply.chain.data.verified",
+      "domain": "unknown",
       "stage": "verification",
-      "batchId": "rwa-claim-1781747887889-236",
-      "energyDataHash": "c8f0f411c5a2a31a901232142add665199651411f094253437403a692c3f48c8",
-      "decisionHash": "6baacbd6da18e3b9bf6b7ddbc4e0b9f05cecc043e6ca18f52eba2239a86f56ed",
-      "winnerWorker": "custodian-auditor",
-      "verified": true,
+      "batchId": "sc-fallback-1781749007675-1394",
+      "energyDataHash": "1e6b3b7fe75db4347b8d701da4be1f005f977638b32fc46b9cc630cc854582c1",
+      "decisionHash": "7d215fdbda7cf0f27b982521419b073574711b73ffba6c073340a19806cab5ee",
+      "winnerWorker": "attest-gate",
+      "verified": false,
       "raw": {
-        "type": "vnx.rwa.claim.data.verified",
-        "batchId": "rwa-claim-1781747887889-236",
+        "type": "vnx.supply.chain.data.verified",
+        "batchId": "sc-fallback-1781749007675-1394",
         "period": "2026-06",
-        "energyDataHash": "c8f0f411c5a2a31a901232142add665199651411f094253437403a692c3f48c8",
-        "decisionHash": "6baacbd6da18e3b9bf6b7ddbc4e0b9f05cecc043e6ca18f52eba2239a86f56ed",
-        "winnerWorker": "custodian-auditor",
-        "verified": true,
-        "latticeScore": 1,
-        "domain": "rwa.claim",
+        "energyDataHash": "1e6b3b7fe75db4347b8d701da4be1f005f977638b32fc46b9cc630cc854582c1",
+        "decisionHash": "7d215fdbda7cf0f27b982521419b073574711b73ffba6c073340a19806cab5ee",
+        "winnerWorker": "attest-gate",
+        "verified": false,
+        "latticeScore": 0.6,
+        "domain": "supply.chain",
         "stage": "verification",
-        "timestamp": 1781747889642,
+        "provenance": "stub",
+        "sourceRef": "FALLBACK-1394",
+        "timestamp": 1781749009252,
         "version": "1.3.0-hip",
         "schema": "vnx.hip/1.0",
         "hip": {
           "profile": "vnx-pipeline",
           "revision": 1,
-          "encoding": "application/json"
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
         },
         "topicId": "0.0.9227346",
         "network": "testnet",
         "payer": "0.0.9035798",
-        "stageHash": "8208a518c6d37e0cc3648703a82859291dd236d8acd6a1b7e44ae9fa5faafe6d",
-        "messageId": "vnx.rwa.claim.data.verified@rwa-claim-1781747887889-236@verification",
+        "stageHash": "66133bd87337115e7f018f283397985ace983c7f295b2097abd0e6b94d4323de",
+        "messageId": "vnx.supply.chain.data.verified@sc-fallback-1781749007675-1394@verification",
+        "liveData": {
+          "provenance": "stub",
+          "live": false,
+          "quality": "fallback"
+        },
         "proof": {
-          "dataHash": "c8f0f411c5a2a31a901232142add665199651411f094253437403a692c3f48c8",
-          "decisionHash": "6baacbd6da18e3b9bf6b7ddbc4e0b9f05cecc043e6ca18f52eba2239a86f56ed",
-          "stageHash": "8208a518c6d37e0cc3648703a82859291dd236d8acd6a1b7e44ae9fa5faafe6d"
+          "dataHash": "1e6b3b7fe75db4347b8d701da4be1f005f977638b32fc46b9cc630cc854582c1",
+          "decisionHash": "7d215fdbda7cf0f27b982521419b073574711b73ffba6c073340a19806cab5ee",
+          "stageHash": "66133bd87337115e7f018f283397985ace983c7f295b2097abd0e6b94d4323de"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409775,
+      "consensusTimestamp": "1781749009.638900469",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007500-1174",
+      "energyDataHash": "731bd96f59db2884bcd79ddb85ba272ee300899112daed1ab8a9dd71ce043774",
+      "decisionHash": "c14eae59cd5a9c96e5aa1779521bad4a20541e0c6121820055ed55f10d9ff462",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007500-1174",
+        "period": "2026-06",
+        "energyDataHash": "731bd96f59db2884bcd79ddb85ba272ee300899112daed1ab8a9dd71ce043774",
+        "decisionHash": "c14eae59cd5a9c96e5aa1779521bad4a20541e0c6121820055ed55f10d9ff462",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009312,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "c93e2eb72dfc40a39cf1f9d179d69242abc13fccb3bec59f23a0bbd73003025c",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007500-1174@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "731bd96f59db2884bcd79ddb85ba272ee300899112daed1ab8a9dd71ce043774",
+          "decisionHash": "c14eae59cd5a9c96e5aa1779521bad4a20541e0c6121820055ed55f10d9ff462",
+          "stageHash": "c93e2eb72dfc40a39cf1f9d179d69242abc13fccb3bec59f23a0bbd73003025c"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409773,
+      "consensusTimestamp": "1781749009.628151000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1194",
+      "energyDataHash": "c6d3faa56dcb6eebfd94df48f6d8dcc5bcd106dc6f8ddb43faf45c8b7997d70a",
+      "decisionHash": "b3e3fb322da9667a0b57063ebbf65fedcdea4a4e42cb85f2fb0b91a22ea93f87",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1194",
+        "period": "2026-06",
+        "energyDataHash": "c6d3faa56dcb6eebfd94df48f6d8dcc5bcd106dc6f8ddb43faf45c8b7997d70a",
+        "decisionHash": "b3e3fb322da9667a0b57063ebbf65fedcdea4a4e42cb85f2fb0b91a22ea93f87",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009321,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "9417d1553f49f6420ca342d502242fd8d34f3280bcd58bf04eb55ff0afab738e",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1194@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "c6d3faa56dcb6eebfd94df48f6d8dcc5bcd106dc6f8ddb43faf45c8b7997d70a",
+          "decisionHash": "b3e3fb322da9667a0b57063ebbf65fedcdea4a4e42cb85f2fb0b91a22ea93f87",
+          "stageHash": "9417d1553f49f6420ca342d502242fd8d34f3280bcd58bf04eb55ff0afab738e"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409772,
+      "consensusTimestamp": "1781749009.542747000",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1187",
+      "energyDataHash": "7b20ec56b159d4568b019f26f860e5ee3c96f636ee02de394a6bed3f18939b0c",
+      "decisionHash": "b56822c9de7e5dd3f1bc154724ffc32a323dabbd1865cd50567bfa2080b0d3ef",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1187",
+        "period": "2026-06",
+        "energyDataHash": "7b20ec56b159d4568b019f26f860e5ee3c96f636ee02de394a6bed3f18939b0c",
+        "decisionHash": "b56822c9de7e5dd3f1bc154724ffc32a323dabbd1865cd50567bfa2080b0d3ef",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009300,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "eb1c39e97485fda9787f1a5f21e9ad1b2484851bd0c9de102f525201ea144ba6",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1187@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "7b20ec56b159d4568b019f26f860e5ee3c96f636ee02de394a6bed3f18939b0c",
+          "decisionHash": "b56822c9de7e5dd3f1bc154724ffc32a323dabbd1865cd50567bfa2080b0d3ef",
+          "stageHash": "eb1c39e97485fda9787f1a5f21e9ad1b2484851bd0c9de102f525201ea144ba6"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409766,
+      "consensusTimestamp": "1781749009.495604794",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1193",
+      "energyDataHash": "adc1f3929e6fcb19f38d09f6c7faaf01ca55855c3508c53fd6dd92880fa23912",
+      "decisionHash": "8cd4d70217cbae67961d8de78f9d64ec66b16d04b32460896566843fe374bf76",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1193",
+        "period": "2026-06",
+        "energyDataHash": "adc1f3929e6fcb19f38d09f6c7faaf01ca55855c3508c53fd6dd92880fa23912",
+        "decisionHash": "8cd4d70217cbae67961d8de78f9d64ec66b16d04b32460896566843fe374bf76",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009182,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "e8e5ae3991472dc7274c10e49c812ba044dca100ffc3489b89db9ef65989cccb",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1193@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "adc1f3929e6fcb19f38d09f6c7faaf01ca55855c3508c53fd6dd92880fa23912",
+          "decisionHash": "8cd4d70217cbae67961d8de78f9d64ec66b16d04b32460896566843fe374bf76",
+          "stageHash": "e8e5ae3991472dc7274c10e49c812ba044dca100ffc3489b89db9ef65989cccb"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409765,
+      "consensusTimestamp": "1781749009.495603794",
+      "type": "vnx.ai.inference.data.verified",
+      "domain": "ai-inference",
+      "stage": "verification",
+      "batchId": "ai-inference-1781749007540-1189",
+      "energyDataHash": "f745708f8b5e1ffae39b8e6bf033c5de639647bf243c8317bcf406b334947718",
+      "decisionHash": "5241bd9ec51a18699334e0fa531861b2bacdeef91a2bf133c9f29b6495c05e80",
+      "winnerWorker": "provider-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.ai.inference.data.verified",
+        "batchId": "ai-inference-1781749007540-1189",
+        "period": "2026-06",
+        "energyDataHash": "f745708f8b5e1ffae39b8e6bf033c5de639647bf243c8317bcf406b334947718",
+        "decisionHash": "5241bd9ec51a18699334e0fa531861b2bacdeef91a2bf133c9f29b6495c05e80",
+        "winnerWorker": "provider-auditor",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "ai.inference",
+        "stage": "verification",
+        "provenance": "huggingface-api",
+        "sourceRef": "meta-llama/Llama-3.2-1B-Instruct",
+        "timestamp": 1781749009174,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "ac3f6690405ce27107f25e7a3402331a43d42d3eadc71f73cc713a33cce2bfaf",
+        "messageId": "vnx.ai.inference.data.verified@ai-inference-1781749007540-1189@verification",
+        "liveData": {
+          "provenance": "huggingface-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "f745708f8b5e1ffae39b8e6bf033c5de639647bf243c8317bcf406b334947718",
+          "decisionHash": "5241bd9ec51a18699334e0fa531861b2bacdeef91a2bf133c9f29b6495c05e80",
+          "stageHash": "ac3f6690405ce27107f25e7a3402331a43d42d3eadc71f73cc713a33cce2bfaf"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409761,
+      "consensusTimestamp": "1781749009.447893673",
+      "type": "vnx.supply.chain.data.verified",
+      "domain": "unknown",
+      "stage": "verification",
+      "batchId": "sc-off-041303001370-1781749007187-1393",
+      "energyDataHash": "a10680fc721ef3e0d26090a91de9e39f308a5f73e330652b4d0c4863ab50cfac",
+      "decisionHash": "dd78ddb09f142223695e66259d0ab90ab3c8db7fe110eba2cddb38f71bf92686",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.supply.chain.data.verified",
+        "batchId": "sc-off-041303001370-1781749007187-1393",
+        "period": "2026-06",
+        "energyDataHash": "a10680fc721ef3e0d26090a91de9e39f308a5f73e330652b4d0c4863ab50cfac",
+        "decisionHash": "dd78ddb09f142223695e66259d0ab90ab3c8db7fe110eba2cddb38f71bf92686",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "supply.chain",
+        "stage": "verification",
+        "provenance": "openfoodfacts-api",
+        "sourceRef": "OFF-041303001370",
+        "timestamp": 1781749009168,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "7acbd45ef014224e0b8dc9945e05a85e07600ad6ae56ebfc4c842451a2615b54",
+        "messageId": "vnx.supply.chain.data.verified@sc-off-041303001370-1781749007187-1393@verification",
+        "liveData": {
+          "provenance": "openfoodfacts-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "a10680fc721ef3e0d26090a91de9e39f308a5f73e330652b4d0c4863ab50cfac",
+          "decisionHash": "dd78ddb09f142223695e66259d0ab90ab3c8db7fe110eba2cddb38f71bf92686",
+          "stageHash": "7acbd45ef014224e0b8dc9945e05a85e07600ad6ae56ebfc4c842451a2615b54"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409757,
+      "consensusTimestamp": "1781749009.339494495",
+      "type": "vnx.sc.provenance.attested",
+      "domain": "supply-chain",
+      "stage": "attestation",
+      "batchId": "sc-off-5000159407236-1781749005038-1382",
+      "energyDataHash": "62e116ad11af3481f5785308b999f9a1511d743bba36c5b6cdcd491e1521d34d",
+      "decisionHash": "da683dcfb585397e7c5fca6714abc7a0f22accb03b7c5798f416f643eb0a9d19",
+      "previousStageHash": "df74ac2335e6c881f2f8296e4886953755c330f4746659de3ea02d4275da87ce",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.sc.provenance.attested",
+        "batchId": "sc-off-5000159407236-1781749005038-1382",
+        "period": "2026-06",
+        "energyDataHash": "62e116ad11af3481f5785308b999f9a1511d743bba36c5b6cdcd491e1521d34d",
+        "decisionHash": "da683dcfb585397e7c5fca6714abc7a0f22accb03b7c5798f416f643eb0a9d19",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "previousStageHash": "df74ac2335e6c881f2f8296e4886953755c330f4746659de3ea02d4275da87ce",
+        "stage": "attestation",
+        "claimId": "sc-off-5000159407236-1781749005038-1382",
+        "sku": "OFF-5000159407236",
+        "origin": "France, Germany, Hungary, Morocco, Poland, Romania",
+        "custodyEvents": 4,
+        "domain": "sc.provenance",
+        "provenance": "France, Germany, Hungary, Morocco, Poland, Romania",
+        "timestamp": 1781749008915,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "73fed27646459cd8b11f198b9eabe233534ceba6fbac1c0d5acaed75d58017b3",
+        "messageId": "vnx.sc.provenance.attested@sc-off-5000159407236-1781749005038-1382@attestation",
+        "liveData": {
+          "provenance": "France, Germany, Hungary, Morocco, Poland, Romania",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "62e116ad11af3481f5785308b999f9a1511d743bba36c5b6cdcd491e1521d34d",
+          "decisionHash": "da683dcfb585397e7c5fca6714abc7a0f22accb03b7c5798f416f643eb0a9d19",
+          "previousStageHash": "df74ac2335e6c881f2f8296e4886953755c330f4746659de3ea02d4275da87ce",
+          "stageHash": "73fed27646459cd8b11f198b9eabe233534ceba6fbac1c0d5acaed75d58017b3"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409753,
+      "consensusTimestamp": "1781749009.042945000",
+      "type": "vnx.sc.provenance.attested",
+      "domain": "supply-chain",
+      "stage": "attestation",
+      "batchId": "sc-off-041303001370-1781749005044-1383",
+      "energyDataHash": "4187a0985f8b0d9692bf1c7402dff7252062dda67ac759412499e8cc391a6d3f",
+      "decisionHash": "d6d020fcbd53094e86b275c6a487c2d979ce478c388d5d6b382437f6bacd5ccf",
+      "previousStageHash": "a77b7887477ea8ca376d8beb6bc8e7e2399efa9c1362cf5588971490b6e5637d",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.sc.provenance.attested",
+        "batchId": "sc-off-041303001370-1781749005044-1383",
+        "period": "2026-06",
+        "energyDataHash": "4187a0985f8b0d9692bf1c7402dff7252062dda67ac759412499e8cc391a6d3f",
+        "decisionHash": "d6d020fcbd53094e86b275c6a487c2d979ce478c388d5d6b382437f6bacd5ccf",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "previousStageHash": "a77b7887477ea8ca376d8beb6bc8e7e2399efa9c1362cf5588971490b6e5637d",
+        "stage": "attestation",
+        "claimId": "sc-off-041303001370-1781749005044-1383",
+        "sku": "OFF-041303001370",
+        "origin": "United States",
+        "custodyEvents": 6,
+        "domain": "sc.provenance",
+        "provenance": "United States",
+        "timestamp": 1781749008810,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "dca9929f795ba51d42b13c122e643891a9e047a5d38a680b5010f315a14e7001",
+        "messageId": "vnx.sc.provenance.attested@sc-off-041303001370-1781749005044-1383@attestation",
+        "liveData": {
+          "provenance": "United States",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "4187a0985f8b0d9692bf1c7402dff7252062dda67ac759412499e8cc391a6d3f",
+          "decisionHash": "d6d020fcbd53094e86b275c6a487c2d979ce478c388d5d6b382437f6bacd5ccf",
+          "previousStageHash": "a77b7887477ea8ca376d8beb6bc8e7e2399efa9c1362cf5588971490b6e5637d",
+          "stageHash": "dca9929f795ba51d42b13c122e643891a9e047a5d38a680b5010f315a14e7001"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409752,
+      "consensusTimestamp": "1781749009.002389000",
+      "type": "vnx.supply.chain.data.verified",
+      "domain": "unknown",
+      "stage": "verification",
+      "batchId": "sc-off-5000159407236-1781749006985-1392",
+      "energyDataHash": "322ec506ff009cea84b53d2e59a2fd2c2f8bed5b6dc394c228d280416731574a",
+      "decisionHash": "752c5614857bca786f240a3ead7898cfca6ba57d5de29a79132dc075efdf8573",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.supply.chain.data.verified",
+        "batchId": "sc-off-5000159407236-1781749006985-1392",
+        "period": "2026-06",
+        "energyDataHash": "322ec506ff009cea84b53d2e59a2fd2c2f8bed5b6dc394c228d280416731574a",
+        "decisionHash": "752c5614857bca786f240a3ead7898cfca6ba57d5de29a79132dc075efdf8573",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "latticeScore": 1,
+        "domain": "supply.chain",
+        "stage": "verification",
+        "provenance": "openfoodfacts-api",
+        "sourceRef": "OFF-5000159407236",
+        "timestamp": 1781749008620,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "e447b42b386fe0e498caae5820afa508d7c10397b652ac20d0c92a29492f3834",
+        "messageId": "vnx.supply.chain.data.verified@sc-off-5000159407236-1781749006985-1392@verification",
+        "liveData": {
+          "provenance": "openfoodfacts-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "322ec506ff009cea84b53d2e59a2fd2c2f8bed5b6dc394c228d280416731574a",
+          "decisionHash": "752c5614857bca786f240a3ead7898cfca6ba57d5de29a79132dc075efdf8573",
+          "stageHash": "e447b42b386fe0e498caae5820afa508d7c10397b652ac20d0c92a29492f3834"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409750,
+      "consensusTimestamp": "1781749008.809542563",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1063",
+      "energyDataHash": "fe1a5da50d7a5d31b4678b65e8918486ee0f5492f69c15354b47aa8e2fccbe79",
+      "decisionHash": "f0a312872229d080427bf3954a771973ab4f916ea72c2e1a15e68296a6448732",
+      "previousStageHash": "bf45597427b82b06ab17da53b56e4f86547f6f5fea4bd47cb4828eb1d737f9bf",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1063",
+        "period": "2026-06",
+        "energyDataHash": "fe1a5da50d7a5d31b4678b65e8918486ee0f5492f69c15354b47aa8e2fccbe79",
+        "decisionHash": "f0a312872229d080427bf3954a771973ab4f916ea72c2e1a15e68296a6448732",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "bf45597427b82b06ab17da53b56e4f86547f6f5fea4bd47cb4828eb1d737f9bf",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008445,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "d78d7fc857e7dc9080035353efda0edc044170fa424b8c97f8835ddadfe1639c",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1063@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "fe1a5da50d7a5d31b4678b65e8918486ee0f5492f69c15354b47aa8e2fccbe79",
+          "decisionHash": "f0a312872229d080427bf3954a771973ab4f916ea72c2e1a15e68296a6448732",
+          "previousStageHash": "bf45597427b82b06ab17da53b56e4f86547f6f5fea4bd47cb4828eb1d737f9bf",
+          "stageHash": "d78d7fc857e7dc9080035353efda0edc044170fa424b8c97f8835ddadfe1639c"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409748,
+      "consensusTimestamp": "1781749008.799016000",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1075",
+      "energyDataHash": "c358310193bd904413c649e2def0e05109ddced58555b247f942b6b285b88bad",
+      "decisionHash": "d2acb1d9a06ac38c1ec80764d57d7fcba279d1ad572232417213d3328584caf2",
+      "previousStageHash": "2ce556b71a5d230b7e5d5fedeae07a368626f83dbfaeca5ca90c82c761aecfdc",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1075",
+        "period": "2026-06",
+        "energyDataHash": "c358310193bd904413c649e2def0e05109ddced58555b247f942b6b285b88bad",
+        "decisionHash": "d2acb1d9a06ac38c1ec80764d57d7fcba279d1ad572232417213d3328584caf2",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "2ce556b71a5d230b7e5d5fedeae07a368626f83dbfaeca5ca90c82c761aecfdc",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008436,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "2950d74c177f48063d5c1304218929087c813d420c8446b8c05ac1de13b89118",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1075@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "c358310193bd904413c649e2def0e05109ddced58555b247f942b6b285b88bad",
+          "decisionHash": "d2acb1d9a06ac38c1ec80764d57d7fcba279d1ad572232417213d3328584caf2",
+          "previousStageHash": "2ce556b71a5d230b7e5d5fedeae07a368626f83dbfaeca5ca90c82c761aecfdc",
+          "stageHash": "2950d74c177f48063d5c1304218929087c813d420c8446b8c05ac1de13b89118"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409747,
+      "consensusTimestamp": "1781749008.656574821",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1076",
+      "energyDataHash": "2898be0eeed9992bddb2b242f97492da92adbed5d41605276defdda2aa451d57",
+      "decisionHash": "e84a21f60dea3d92fc9aa722eb2af48da25190e040e319fe3ec329f8ae0715f7",
+      "previousStageHash": "b371fa7b602c9738b58dfe003575e2b8842baae10716c6ce79d2f850a2e0bb21",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1076",
+        "period": "2026-06",
+        "energyDataHash": "2898be0eeed9992bddb2b242f97492da92adbed5d41605276defdda2aa451d57",
+        "decisionHash": "e84a21f60dea3d92fc9aa722eb2af48da25190e040e319fe3ec329f8ae0715f7",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "b371fa7b602c9738b58dfe003575e2b8842baae10716c6ce79d2f850a2e0bb21",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008467,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "34fb5878dc7edaf5db3940604f8f0d7f1473aea99a45d7f7e64e343ec1aecf3a",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1076@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "2898be0eeed9992bddb2b242f97492da92adbed5d41605276defdda2aa451d57",
+          "decisionHash": "e84a21f60dea3d92fc9aa722eb2af48da25190e040e319fe3ec329f8ae0715f7",
+          "previousStageHash": "b371fa7b602c9738b58dfe003575e2b8842baae10716c6ce79d2f850a2e0bb21",
+          "stageHash": "34fb5878dc7edaf5db3940604f8f0d7f1473aea99a45d7f7e64e343ec1aecf3a"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409746,
+      "consensusTimestamp": "1781749008.709145207",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1073",
+      "energyDataHash": "15e1759f6877fd29343a0ed2afedbc9b279c46729d4775ad7ecc584205d7a5fc",
+      "decisionHash": "7f12a8a189c27b1d83a039b89d5a0287ab21efb6a07da4154e7bffec087dfaa4",
+      "previousStageHash": "dd86b4084a034ad8040209c025e23a32323e7716ca58ddb9454032df250b93e7",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1073",
+        "period": "2026-06",
+        "energyDataHash": "15e1759f6877fd29343a0ed2afedbc9b279c46729d4775ad7ecc584205d7a5fc",
+        "decisionHash": "7f12a8a189c27b1d83a039b89d5a0287ab21efb6a07da4154e7bffec087dfaa4",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "dd86b4084a034ad8040209c025e23a32323e7716ca58ddb9454032df250b93e7",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008456,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "096eb59929b16bf94fb29f942823b4930ddbe903d3afcd5a800c7c336cd46b4d",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1073@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "15e1759f6877fd29343a0ed2afedbc9b279c46729d4775ad7ecc584205d7a5fc",
+          "decisionHash": "7f12a8a189c27b1d83a039b89d5a0287ab21efb6a07da4154e7bffec087dfaa4",
+          "previousStageHash": "dd86b4084a034ad8040209c025e23a32323e7716ca58ddb9454032df250b93e7",
+          "stageHash": "096eb59929b16bf94fb29f942823b4930ddbe903d3afcd5a800c7c336cd46b4d"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409745,
+      "consensusTimestamp": "1781749008.685978161",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1069",
+      "energyDataHash": "99b3dae7d8339e9e34478f3279cec91bbd872ebfa004c5735e60ac8642bf566d",
+      "decisionHash": "ed2c4759064668332f61d6d11cf512d5206aa553e9bd13a5232035edb106d505",
+      "previousStageHash": "5b526390ef7d31e92f188cceb72791d562b7804e58f7a5de05731403a9aeec38",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1069",
+        "period": "2026-06",
+        "energyDataHash": "99b3dae7d8339e9e34478f3279cec91bbd872ebfa004c5735e60ac8642bf566d",
+        "decisionHash": "ed2c4759064668332f61d6d11cf512d5206aa553e9bd13a5232035edb106d505",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "5b526390ef7d31e92f188cceb72791d562b7804e58f7a5de05731403a9aeec38",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008476,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "86080bda98df3cb07755598775712bc4b5c830773951bae69688d8a28f05c584",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1069@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "99b3dae7d8339e9e34478f3279cec91bbd872ebfa004c5735e60ac8642bf566d",
+          "decisionHash": "ed2c4759064668332f61d6d11cf512d5206aa553e9bd13a5232035edb106d505",
+          "previousStageHash": "5b526390ef7d31e92f188cceb72791d562b7804e58f7a5de05731403a9aeec38",
+          "stageHash": "86080bda98df3cb07755598775712bc4b5c830773951bae69688d8a28f05c584"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409743,
+      "consensusTimestamp": "1781749008.685981000",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1074",
+      "energyDataHash": "663c2aa1672e1b6e59bca21311dcfc92a57a9d2e2b8a77125b7a0113fb7fbe48",
+      "decisionHash": "f0e7bf2c41d93422f55f29683af7113717a7dc42027e528bd1efba3f1901f950",
+      "previousStageHash": "295b27a5c7d521e75090eabc8961eb7621fa96b9ac9da639f56a9e31fd13ba14",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1074",
+        "period": "2026-06",
+        "energyDataHash": "663c2aa1672e1b6e59bca21311dcfc92a57a9d2e2b8a77125b7a0113fb7fbe48",
+        "decisionHash": "f0e7bf2c41d93422f55f29683af7113717a7dc42027e528bd1efba3f1901f950",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "295b27a5c7d521e75090eabc8961eb7621fa96b9ac9da639f56a9e31fd13ba14",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008326,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "a585ef0ec98b6e52e1e15854a3b6f1fb8febc757d07c0ede8a292d12ee727137",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1074@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "663c2aa1672e1b6e59bca21311dcfc92a57a9d2e2b8a77125b7a0113fb7fbe48",
+          "decisionHash": "f0e7bf2c41d93422f55f29683af7113717a7dc42027e528bd1efba3f1901f950",
+          "previousStageHash": "295b27a5c7d521e75090eabc8961eb7621fa96b9ac9da639f56a9e31fd13ba14",
+          "stageHash": "a585ef0ec98b6e52e1e15854a3b6f1fb8febc757d07c0ede8a292d12ee727137"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409742,
+      "consensusTimestamp": "1781749008.656573821",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004074-1055",
+      "energyDataHash": "edd890f516c79bcdde32335360a2394dd0de470b8d5c0f9fba44db19da82e050",
+      "decisionHash": "8777bd3546676c027f9e62ab6b18e4aa5a215561eaeb283d9a525cc7186765ab",
+      "previousStageHash": "b69ddb8b6dbda83bf897cdbaf562454b9bf9e6f19bdac12ba8e8b99e74a3719f",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004074-1055",
+        "period": "2026-06",
+        "energyDataHash": "edd890f516c79bcdde32335360a2394dd0de470b8d5c0f9fba44db19da82e050",
+        "decisionHash": "8777bd3546676c027f9e62ab6b18e4aa5a215561eaeb283d9a525cc7186765ab",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "b69ddb8b6dbda83bf897cdbaf562454b9bf9e6f19bdac12ba8e8b99e74a3719f",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008415,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "0c3f51f451c856ea1b54690b2d38d2c2555092fae4014254a5b93a91ded3e0ad",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004074-1055@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "edd890f516c79bcdde32335360a2394dd0de470b8d5c0f9fba44db19da82e050",
+          "decisionHash": "8777bd3546676c027f9e62ab6b18e4aa5a215561eaeb283d9a525cc7186765ab",
+          "previousStageHash": "b69ddb8b6dbda83bf897cdbaf562454b9bf9e6f19bdac12ba8e8b99e74a3719f",
+          "stageHash": "0c3f51f451c856ea1b54690b2d38d2c2555092fae4014254a5b93a91ded3e0ad"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409740,
+      "consensusTimestamp": "1781749008.685977161",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004127-1070",
+      "energyDataHash": "f1d4fe82bdde2174d35e0cd2d3280a4c4cf662be209171e041fe22c6f7eff89b",
+      "decisionHash": "4fbceac681d9b8e605a2d148210e4119866da1a3938d6caab9658a9956e506cd",
+      "previousStageHash": "10a18c202fe94eb9240d0068e22f40c1b14dae0cb80f85d2821442ba55bea279",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004127-1070",
+        "period": "2026-06",
+        "energyDataHash": "f1d4fe82bdde2174d35e0cd2d3280a4c4cf662be209171e041fe22c6f7eff89b",
+        "decisionHash": "4fbceac681d9b8e605a2d148210e4119866da1a3938d6caab9658a9956e506cd",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "10a18c202fe94eb9240d0068e22f40c1b14dae0cb80f85d2821442ba55bea279",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008393,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "ba2f503d62af2459c35d764edb7927a4a4a2d7d30ff448ed3ee7e5f5cdb5a977",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004127-1070@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "f1d4fe82bdde2174d35e0cd2d3280a4c4cf662be209171e041fe22c6f7eff89b",
+          "decisionHash": "4fbceac681d9b8e605a2d148210e4119866da1a3938d6caab9658a9956e506cd",
+          "previousStageHash": "10a18c202fe94eb9240d0068e22f40c1b14dae0cb80f85d2821442ba55bea279",
+          "stageHash": "ba2f503d62af2459c35d764edb7927a4a4a2d7d30ff448ed3ee7e5f5cdb5a977"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409739,
+      "consensusTimestamp": "1781749008.685976161",
+      "type": "vnx.water.credit.retired",
+      "domain": "water-biodiversity",
+      "stage": "retirement",
+      "batchId": "water-biodiversity-1781749004074-1060",
+      "energyDataHash": "bca072bb18cbb5959626ba9fe2f12b70890fb1967a9dd111637dc6893f182979",
+      "decisionHash": "c344f51be1ad1301bc435e21b013e268c089d3eca818cfd054be9bb700b7c318",
+      "previousStageHash": "87c2a638cd2001a81d1b0065d1775382b4354b8c23aa38b9a6d2897cec7e6828",
+      "winnerWorker": "biodiversity-auditor",
+      "verified": true,
+      "raw": {
+        "type": "vnx.water.credit.retired",
+        "batchId": "water-biodiversity-1781749004074-1060",
+        "period": "2026-06",
+        "energyDataHash": "bca072bb18cbb5959626ba9fe2f12b70890fb1967a9dd111637dc6893f182979",
+        "decisionHash": "c344f51be1ad1301bc435e21b013e268c089d3eca818cfd054be9bb700b7c318",
+        "winnerWorker": "biodiversity-auditor",
+        "verified": true,
+        "previousStageHash": "87c2a638cd2001a81d1b0065d1775382b4354b8c23aa38b9a6d2897cec7e6828",
+        "watershedId": "USGS-01646500",
+        "retiredCredits": 20,
+        "speciesDelta": 20,
+        "provenance": "usgs-api+inaturalist-api",
+        "domain": "water.biodiversity",
+        "stage": "retirement",
+        "timestamp": 1781749008314,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "a2ce5ca38b70f4b5f84edb402026ca15621481931483147d5fbe3182271b54aa",
+        "messageId": "vnx.water.credit.retired@water-biodiversity-1781749004074-1060@retirement",
+        "liveData": {
+          "provenance": "usgs-api+inaturalist-api",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "bca072bb18cbb5959626ba9fe2f12b70890fb1967a9dd111637dc6893f182979",
+          "decisionHash": "c344f51be1ad1301bc435e21b013e268c089d3eca818cfd054be9bb700b7c318",
+          "previousStageHash": "87c2a638cd2001a81d1b0065d1775382b4354b8c23aa38b9a6d2897cec7e6828",
+          "stageHash": "a2ce5ca38b70f4b5f84edb402026ca15621481931483147d5fbe3182271b54aa"
+        }
+      }
+    },
+    {
+      "sequenceNumber": 409730,
+      "consensusTimestamp": "1781749008.615290810",
+      "type": "vnx.sc.provenance.attested",
+      "domain": "supply-chain",
+      "stage": "attestation",
+      "batchId": "sc-off-3017620422003-1781749004509-1381",
+      "energyDataHash": "6cc7a2f26d53ed4ce0bd09e5264006de13c918d29d3b88c68ddca7e5f0b70d00",
+      "decisionHash": "a2eaaaa2f6ee3a7f7492a429004e82d428ebc931da83d37a711f44b81b9fae6b",
+      "previousStageHash": "7801a7083d578cba4241fd3aa7efd92a42fd5b79a373d7e8892afc1818b7c7b1",
+      "winnerWorker": "attest-gate",
+      "verified": true,
+      "raw": {
+        "type": "vnx.sc.provenance.attested",
+        "batchId": "sc-off-3017620422003-1781749004509-1381",
+        "period": "2026-06",
+        "energyDataHash": "6cc7a2f26d53ed4ce0bd09e5264006de13c918d29d3b88c68ddca7e5f0b70d00",
+        "decisionHash": "a2eaaaa2f6ee3a7f7492a429004e82d428ebc931da83d37a711f44b81b9fae6b",
+        "winnerWorker": "attest-gate",
+        "verified": true,
+        "previousStageHash": "7801a7083d578cba4241fd3aa7efd92a42fd5b79a373d7e8892afc1818b7c7b1",
+        "stage": "attestation",
+        "claimId": "sc-off-3017620422003-1781749004509-1381",
+        "sku": "OFF-3017620422003",
+        "origin": "France, Italie, Luxembourg, Philippines, en:Allemagne, en:Belgique, en:Espagne, en:Inde, en:Maroc, en:Pays-Bas, en:Pologne, en:Roumanie, en:Royaume-Uni, en:Suisse, en:Turquie, en:États-Unis",
+        "custodyEvents": 3,
+        "domain": "sc.provenance",
+        "provenance": "France, Italie, Luxembourg, Philippines, en:Allemagne, en:Belgique, en:Espagne, en:Inde, en:Maroc, en:Pays-Bas, en:Pologne, en:Roumanie, en:Royaume-Uni, en:Suisse, en:Turquie, en:États-Unis",
+        "timestamp": 1781749008415,
+        "version": "1.3.0-hip",
+        "schema": "vnx.hip/1.0",
+        "hip": {
+          "profile": "vnx-pipeline",
+          "revision": 1,
+          "encoding": "application/json",
+          "stages": [
+            "verification",
+            "attestation",
+            "retirement"
+          ]
+        },
+        "topicId": "0.0.9227346",
+        "network": "testnet",
+        "payer": "0.0.9035798",
+        "stageHash": "0561dfd031dfc97fe8ab4092ae3fa1e24e8ec0e1e962c44bff2e4cd8437eb37d",
+        "messageId": "vnx.sc.provenance.attested@sc-off-3017620422003-1781749004509-1381@attestation",
+        "liveData": {
+          "provenance": "France, Italie, Luxembourg, Philippines, en:Allemagne, en:Belgique, en:Espagne, en:Inde, en:Maroc, en:Pays-Bas, en:Pologne, en:Roumanie, en:Royaume-Uni, en:Suisse, en:Turquie, en:États-Unis",
+          "live": true,
+          "quality": "high"
+        },
+        "proof": {
+          "dataHash": "6cc7a2f26d53ed4ce0bd09e5264006de13c918d29d3b88c68ddca7e5f0b70d00",
+          "decisionHash": "a2eaaaa2f6ee3a7f7492a429004e82d428ebc931da83d37a711f44b81b9fae6b",
+          "previousStageHash": "7801a7083d578cba4241fd3aa7efd92a42fd5b79a373d7e8892afc1818b7c7b1",
+          "stageHash": "0561dfd031dfc97fe8ab4092ae3fa1e24e8ec0e1e962c44bff2e4cd8437eb37d"
         }
       }
     }
   ],
-  "fetchedAt": "2026-06-18T01:58:14.415Z"
+  "fetchedAt": "2026-06-18T02:16:53.073Z"
 }
