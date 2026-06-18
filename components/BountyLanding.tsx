@@ -192,7 +192,7 @@ export default function BountyLanding() {
                       {timeStr && <span>{timeStr}</span>}
                       {msg.batchId && <span className="font-mono truncate max-w-[160px]">{msg.batchId}</span>}
                       {msg.energyDataHash && (
-                        <Link href={`/receipts/${msg.energyDataHash}`} className="font-mono text-veda-accent/60 hover:text-veda-accent hover:underline truncate max-w-[140px]">
+                        <Link href={`/receipts/${msg.energyDataHash}`} prefetch={false} className="font-mono text-veda-accent/60 hover:text-veda-accent hover:underline truncate max-w-[140px]">
                           {msg.energyDataHash.slice(0, 16)}…
                         </Link>
                       )}

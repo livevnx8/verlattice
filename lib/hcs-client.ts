@@ -84,7 +84,29 @@ export function detectDomain(messageType: string): string {
 
 function b64decode(str: string): string {
   if (typeof atob !== 'undefined') return atob(str);
-  return Buffer.from(str, 'base64').toString('utf8');
+  // Node/build-time fallback without pulling Buffer into the browser bundle.
+  return typeof Buffer !== 'undefined'
+    ? Buffer.from(str, 'base64').toString('utf8')
+    : str;
+}
+
+const MIRROR_TIMEOUT_MS = 15_000;
+
+async function fetchMirrorJson<T>(url: string, timeoutMs = MIRROR_TIMEOUT_MS): Promise<T> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
+    if (!res.ok) throw new Error(`Mirror node error: ${res.status}`);
+    return (await res.json()) as T;
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      throw new Error(`Mirror node timeout after ${timeoutMs / 1000}s`);
+    }
+    throw err;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 export function decodeHcsMessage(msg: HcsMirrorMessage): DecodedVnxMessage | null {
@@ -129,12 +151,30 @@ export async function fetchTopicMessages(
 ): Promise<DecodedVnxMessage[]> {
   const base = mirrorBaseUrl(network);
   const url = `${base}/api/v1/topics/${topicId}/messages?limit=${limit}&order=desc`;
-  const res = await fetch(url, { cache: 'no-store' });
-  if (!res.ok) throw new Error(`Mirror node error: ${res.status}`);
-  const data = (await res.json()) as { messages?: HcsMirrorMessage[] };
+  const data = await fetchMirrorJson<{ messages?: HcsMirrorMessage[] }>(url);
   return (data.messages || [])
     .map(decodeHcsMessage)
     .filter((m): m is DecodedVnxMessage => m !== null);
+}
+
+export interface HcsSnapshot {
+  topicId: string;
+  network: string;
+  maxSequence: number;
+  messageCount: number;
+  estimatedTps: number;
+  messages: DecodedVnxMessage[];
+  fetchedAt: string;
+}
+
+export async function loadHcsSnapshot(basePath = ''): Promise<HcsSnapshot | null> {
+  try {
+    const res = await fetch(`${basePath}/hcs-snapshot.json`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return (await res.json()) as HcsSnapshot;
+  } catch {
+    return null;
+  }
 }
 
 export async function fetchTopicMeta(

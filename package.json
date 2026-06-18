@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3900",
+    "prebuild": "node scripts/fetch-hcs-snapshot.mjs",
     "build": "next build",
     "start": "next start -p 3900",
     "lint": "next lint"

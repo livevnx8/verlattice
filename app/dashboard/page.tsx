@@ -3,7 +3,14 @@
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { Activity, Radio, ExternalLink, RefreshCw } from 'lucide-react';
-import { VNX_TESTNET_TOPIC, fetchTopicMessages, computeTps, hashscanTopicUrl, type DecodedVnxMessage } from '@/lib/hcs-client';
+import {
+  VNX_TESTNET_TOPIC,
+  fetchTopicMessages,
+  computeTps,
+  loadHcsSnapshot,
+  mirrorBaseUrl,
+  type DecodedVnxMessage,
+} from '@/lib/hcs-client';
 
 interface HcsFeedResponse {
   topicId: string;
@@ -45,25 +52,56 @@ export default function DashboardPage() {
   const [feed, setFeed] = useState<HcsFeedResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [pollInterval, setPollInterval] = useState(10);
+  const [stale, setStale] = useState(false);
+
+  const applyFeed = useCallback((msgs: DecodedVnxMessage[], isStale = false) => {
+    setMessages(msgs);
+    const maxSequence = msgs[0]?.sequenceNumber ?? 0;
+    setMaxSeq(maxSequence);
+    const estimatedTps = computeTps(msgs);
+    setTps(estimatedTps);
+    setStale(isStale);
+    setFeed({
+      topicId: VNX_TESTNET_TOPIC,
+      network: 'testnet',
+      messageCount: msgs.length,
+      maxSequence,
+      estimatedTps,
+      messages: msgs as unknown as HcsFeedResponse['messages'],
+      hashscanUrl: `https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}`,
+      fetchedAt: new Date().toISOString(),
+    });
+  }, []);
 
   const fetchFeed = useCallback(async () => {
     try {
       const msgs = await fetchTopicMessages(VNX_TESTNET_TOPIC, 'testnet', 30);
-      setMessages(msgs);
-      setMaxSeq(msgs[0]?.sequenceNumber ?? 0);
-      setTps(computeTps(msgs));
-      setFeed({ topicId: VNX_TESTNET_TOPIC, network: 'testnet', messageCount: msgs.length, maxSequence: msgs[0]?.sequenceNumber ?? 0, estimatedTps: computeTps(msgs), messages: msgs as unknown as HcsFeedResponse['messages'], hashscanUrl: `https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}`, fetchedAt: new Date().toISOString() });
-    } catch {
-      setFeed({ error: 'Failed to fetch', topicId: VNX_TESTNET_TOPIC } as HcsFeedResponse);
+      applyFeed(msgs);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to fetch';
+      setFeed((prev) => ({
+        ...(prev ?? {}),
+        error: message,
+        topicId: VNX_TESTNET_TOPIC,
+        hashscanUrl: `https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}`,
+      } as HcsFeedResponse));
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-  }, []);
+  }, [applyFeed]);
 
   useEffect(() => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/verlattice' : '';
+    loadHcsSnapshot(basePath).then((snapshot) => {
+      if (snapshot?.messages?.length) {
+        applyFeed(snapshot.messages, true);
+        setLoading(false);
+      }
+    });
     fetchFeed();
     const id = setInterval(fetchFeed, pollInterval * 1000);
     return () => clearInterval(id);
-  }, [fetchFeed, pollInterval]);
+  }, [fetchFeed, pollInterval, applyFeed]);
 
   return (
     <div className="min-h-screen bg-veda-bg text-white">
@@ -126,6 +164,9 @@ export default function DashboardPage() {
             <option value={30}>30s</option>
           </select>
           {feed?.fetchedAt && <span>· Last: {new Date(feed.fetchedAt).toLocaleTimeString()}</span>}
+          {stale && !feed?.error && (
+            <span className="text-amber-400/80">· showing cached snapshot, refreshing…</span>
+          )}
         </div>
 
         {/* Message feed */}
@@ -134,9 +175,26 @@ export default function DashboardPage() {
             Live HCS Feed
           </div>
           {loading && !feed ? (
-            <div className="p-8 text-center text-sm text-white/30">Loading mirror node...</div>
-          ) : feed?.error ? (
-            <div className="p-8 text-center text-sm text-red-400">{feed.error}</div>
+            <div className="p-8 text-center text-sm text-white/30">
+              <p>Connecting to Hedera mirror node…</p>
+              <p className="mt-2 text-xs text-white/20">Topic {VNX_TESTNET_TOPIC}</p>
+            </div>
+          ) : feed?.error && !feed?.messages?.length ? (
+            <div className="p-8 text-center text-sm text-red-400 space-y-2">
+              <p>{feed.error}</p>
+              <p className="text-xs text-white/40">
+                Check network access to{' '}
+                <a
+                  href={`${mirrorBaseUrl('testnet')}/api/v1/topics/${VNX_TESTNET_TOPIC}/messages?limit=5&order=desc`}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-veda-accent hover:underline"
+                >
+                  testnet mirror node
+                </a>
+                {' '}or try Refresh.
+              </p>
+            </div>
           ) : (
             <div className="divide-y divide-white/[0.04]">
               {feed?.messages?.map((msg) => (
@@ -157,7 +215,7 @@ export default function DashboardPage() {
                     <div className="mt-1 flex flex-wrap gap-3 text-[10px] text-white/30">
                       {msg.batchId && <span>batch: {msg.batchId.slice(0, 24)}</span>}
                       {msg.energyDataHash && (
-                        <Link href={`/receipts/${msg.energyDataHash}`} className="text-veda-accent/70 hover:underline">
+                        <Link href={`/receipts/${msg.energyDataHash}`} prefetch={false} className="text-veda-accent/70 hover:underline">
                           hash: {msg.energyDataHash.slice(0, 16)}...
                         </Link>
                       )}
