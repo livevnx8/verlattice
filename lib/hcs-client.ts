@@ -117,8 +117,9 @@ export function mirrorBaseUrl(network: 'testnet' | 'mainnet' = 'testnet'): strin
     : 'https://testnet.mirrornode.hedera.com';
 }
 
-export function hashscanTopicUrl(topicId: string, seq: number, network = 'testnet'): string {
-  return `https://hashscan.io/${network}/topic/${topicId}/${seq}`;
+export function hashscanTopicUrl(topicId: string, seq?: number, network = 'testnet'): string {
+  const base = `https://hashscan.io/${network}/topic/${topicId}`;
+  return seq != null ? `${base}?sequenceNumber=${seq}` : base;
 }
 
 export async function fetchTopicMessages(

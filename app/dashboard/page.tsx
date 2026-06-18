@@ -169,7 +169,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <a
-                    href={`https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}/${msg.sequenceNumber}`}
+                    href={`https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}?sequenceNumber=${msg.sequenceNumber}`}
                     target="_blank"
                     rel="noopener"
                     aria-label={`View message #${msg.sequenceNumber} on HashScan`}
