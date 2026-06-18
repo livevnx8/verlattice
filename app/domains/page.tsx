@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Layers, Activity, ExternalLink } from 'lucide-react';
-import { VNX_DOMAINS, VNX_TESTNET_TOPIC, fetchTopicMessages, computeTps } from '@/lib/hcs-client';
+import { VNX_DOMAINS, VNX_TESTNET_TOPIC, fetchTopicFeed, formatTps } from '@/lib/hcs-client';
 
 interface DomainStats {
   id: string;
@@ -28,9 +28,10 @@ export default function DomainsPage() {
   useEffect(() => {
     async function load() {
       try {
-        const msgs = await fetchTopicMessages(VNX_TESTNET_TOPIC, 'testnet', 100);
-        setTotalMessages(msgs[0]?.sequenceNumber ?? 0);
-        setTps(computeTps(msgs));
+        const feed = await fetchTopicFeed(VNX_TESTNET_TOPIC, 'testnet', 100);
+        const msgs = feed.messages;
+        setTotalMessages(feed.maxSequence);
+        setTps(feed.estimatedTps);
 
         const domainCounts: Record<string, { count: number; lastType?: string; lastSeq?: number }> = {};
         for (const d of VNX_DOMAINS) domainCounts[d.id] = { count: 0 };
@@ -87,8 +88,8 @@ export default function DomainsPage() {
             <div className="text-xl font-semibold">{totalMessages}</div>
           </div>
           <div className="rounded-lg border border-veda-accent/20 bg-veda-accent/5 p-3">
-            <div className="text-[10px] uppercase text-white/40">Est. TPS</div>
-            <div className="text-xl font-semibold text-veda-accent">{tps.toFixed(2)}</div>
+            <div className="text-[10px] uppercase text-white/40">Live TPS</div>
+            <div className="text-xl font-semibold text-veda-accent">{formatTps(tps)}</div>
           </div>
         </div>
 

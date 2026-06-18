@@ -7,7 +7,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const TOPIC = '0.0.9227346';
-const LIMIT = 30;
+const LIMIT = 100;
 const MIRROR = 'https://testnet.mirrornode.hedera.com';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -28,6 +28,51 @@ function detectDomain(type) {
   if (type.includes('topic.created')) return 'system';
   if (type.includes('swarm.proof')) return 'core';
   return 'unknown';
+}
+
+function chunkKey(info) {
+  const id = info.initial_transaction_id;
+  return `${id.account_id}|${id.transaction_valid_start}|${id.nonce}|${id.scheduled}`;
+}
+
+function reassembleChunkedMessages(raw) {
+  const pending = new Map();
+  const ready = [];
+
+  for (const msg of raw) {
+    const chunk = msg.chunk_info;
+    if (!chunk || chunk.total <= 1) {
+      ready.push(msg);
+      continue;
+    }
+    const key = chunkKey(chunk);
+    const group = pending.get(key) ?? [];
+    group.push(msg);
+    pending.set(key, group);
+    if (group.length === chunk.total) {
+      group.sort((a, b) => a.chunk_info.number - b.chunk_info.number);
+      const body = group.map((m) => Buffer.from(m.message, 'base64').toString('utf8')).join('');
+      const last = group[group.length - 1];
+      ready.push({
+        sequence_number: Math.max(...group.map((m) => m.sequence_number)),
+        consensus_timestamp: last.consensus_timestamp,
+        message: Buffer.from(body, 'utf8').toString('base64'),
+      });
+      pending.delete(key);
+    }
+  }
+
+  return ready.sort((a, b) => b.sequence_number - a.sequence_number);
+}
+
+function computeTpsFromMirror(messages) {
+  if (messages.length < 2) return 0;
+  const newest = messages[0];
+  const oldest = messages[messages.length - 1];
+  const seqDelta = newest.sequence_number - oldest.sequence_number;
+  const timeSpan = parseFloat(newest.consensus_timestamp) - parseFloat(oldest.consensus_timestamp);
+  if (seqDelta <= 0 || timeSpan <= 0) return 0;
+  return seqDelta / timeSpan;
 }
 
 function decodeMessage(msg) {
@@ -54,30 +99,25 @@ function decodeMessage(msg) {
   }
 }
 
-function computeTps(messages, windowSec = 60) {
-  if (messages.length < 2) return 0;
-  const now = Date.now() / 1000;
-  const recent = messages.filter((m) => now - parseFloat(m.consensusTimestamp) < windowSec);
-  return recent.length / windowSec;
-}
-
 const url = `${MIRROR}/api/v1/topics/${TOPIC}/messages?limit=${LIMIT}&order=desc`;
 const res = await fetch(url);
 if (!res.ok) throw new Error(`Mirror fetch failed: ${res.status}`);
 const data = await res.json();
-const messages = (data.messages || []).map(decodeMessage).filter(Boolean);
-const maxSequence = messages[0]?.sequenceNumber ?? 0;
+const raw = data.messages || [];
+const maxSequence = raw[0]?.sequence_number ?? 0;
+const estimatedTps = computeTpsFromMirror(raw);
+const messages = reassembleChunkedMessages(raw).map(decodeMessage).filter(Boolean);
 
 const snapshot = {
   topicId: TOPIC,
   network: 'testnet',
   maxSequence,
   messageCount: messages.length,
-  estimatedTps: computeTps(messages),
+  estimatedTps,
   messages,
   fetchedAt: new Date().toISOString(),
 };
 
 const outPath = join(outDir, 'hcs-snapshot.json');
 writeFileSync(outPath, JSON.stringify(snapshot, null, 2));
-console.log(`Wrote ${outPath} — seq ${maxSequence}, ${messages.length} messages`);
+console.log(`Wrote ${outPath} — seq ${maxSequence}, ${messages.length} messages, ${Math.round(estimatedTps)} TPS`);

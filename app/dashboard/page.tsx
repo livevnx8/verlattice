@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Activity, Radio, ExternalLink, RefreshCw } from 'lucide-react';
 import {
   VNX_TESTNET_TOPIC,
-  fetchTopicMessages,
-  computeTps,
+  fetchTopicFeed,
+  formatTps,
   loadHcsSnapshot,
   mirrorBaseUrl,
   type DecodedVnxMessage,
@@ -54,11 +54,14 @@ export default function DashboardPage() {
   const [pollInterval, setPollInterval] = useState(10);
   const [stale, setStale] = useState(false);
 
-  const applyFeed = useCallback((msgs: DecodedVnxMessage[], isStale = false) => {
+  const applyFeed = useCallback((
+    msgs: DecodedVnxMessage[],
+    estimatedTps: number,
+    maxSequence: number,
+    isStale = false,
+  ) => {
     setMessages(msgs);
-    const maxSequence = msgs[0]?.sequenceNumber ?? 0;
     setMaxSeq(maxSequence);
-    const estimatedTps = computeTps(msgs);
     setTps(estimatedTps);
     setStale(isStale);
     setFeed({
@@ -75,8 +78,8 @@ export default function DashboardPage() {
 
   const fetchFeed = useCallback(async () => {
     try {
-      const msgs = await fetchTopicMessages(VNX_TESTNET_TOPIC, 'testnet', 30);
-      applyFeed(msgs);
+      const feed = await fetchTopicFeed(VNX_TESTNET_TOPIC, 'testnet', 100);
+      applyFeed(feed.messages, feed.estimatedTps, feed.maxSequence);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to fetch';
       setFeed((prev) => ({
@@ -94,7 +97,7 @@ export default function DashboardPage() {
     const basePath = process.env.NODE_ENV === 'production' ? '/verlattice' : '';
     loadHcsSnapshot(basePath).then((snapshot) => {
       if (snapshot?.messages?.length) {
-        applyFeed(snapshot.messages, true);
+        applyFeed(snapshot.messages, snapshot.estimatedTps, snapshot.maxSequence, true);
         setLoading(false);
       }
     });
@@ -132,8 +135,8 @@ export default function DashboardPage() {
           <StatCard label="Max Sequence" value={feed?.maxSequence?.toLocaleString() ?? '—'} />
           <StatCard label="Messages Loaded" value={feed?.messageCount?.toString() ?? '—'} />
           <StatCard
-            label="Est. TPS (60s)"
-            value={feed?.estimatedTps != null ? feed.estimatedTps.toFixed(2) : '—'}
+            label="Live TPS"
+            value={feed?.estimatedTps != null ? formatTps(feed.estimatedTps) : '—'}
             highlight
           />
           <StatCard

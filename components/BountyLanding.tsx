@@ -7,7 +7,7 @@ import {
   Cpu, Coins, GitBranch, CheckCircle, Hexagon, Zap, Database,
 } from 'lucide-react';
 import {
-  fetchTopicMessages, computeTps, hashscanTopicUrl,
+  fetchTopicFeed, formatTps, hashscanTopicUrl,
   type DecodedVnxMessage,
 } from '@/lib/hcs-client';
 
@@ -77,10 +77,10 @@ export default function BountyLanding() {
 
   const fetchFeed = useCallback(async () => {
     try {
-      const messages = await fetchTopicMessages(TESTNET_TOPIC, 'testnet', 20);
-      setMsgs(messages);
-      setMaxSeq(messages[0]?.sequenceNumber ?? 0);
-      setTps(computeTps(messages));
+      const feed = await fetchTopicFeed(TESTNET_TOPIC, 'testnet', 100);
+      setMsgs(feed.messages);
+      setMaxSeq(feed.maxSequence);
+      setTps(feed.estimatedTps);
       setLastFetched(new Date().toLocaleTimeString());
     } catch {}
     setLoading(false);
@@ -134,8 +134,8 @@ export default function BountyLanding() {
               <div className="text-[10px] uppercase tracking-widest text-white/40">On-chain messages</div>
             </div>
             <div className="rounded-lg border border-white/10 bg-black/40 px-4 py-2 text-center">
-              <div className="text-lg font-semibold text-white/90">{tps > 0 ? tps.toFixed(2) : '—'}</div>
-              <div className="text-[10px] uppercase tracking-widest text-white/40">Est. TPS (60s)</div>
+              <div className="text-lg font-semibold text-white/90">{formatTps(tps)}</div>
+              <div className="text-[10px] uppercase tracking-widest text-white/40">Live TPS</div>
             </div>
           </div>
         </div>
