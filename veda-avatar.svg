@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0d1a1a"/>
+      <stop offset="100%" stop-color="#060d10"/>
+    </radialGradient>
+    <radialGradient id="skinGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f5dfc8"/>
+      <stop offset="100%" stop-color="#e8c9a8"/>
+    </radialGradient>
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ffaa"/>
+      <stop offset="60%" stop-color="#00cc88"/>
+      <stop offset="100%" stop-color="#007755"/>
+    </radialGradient>
+    <radialGradient id="irisGlow" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#00ffbb"/>
+      <stop offset="100%" stop-color="#008855"/>
+    </radialGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="50%" stop-color="#0d0820"/>
+      <stop offset="100%" stop-color="#150d28"/>
+    </linearGradient>
+    <linearGradient id="hairSheen" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#3d1a6e" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1a0a2e" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="circuitLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ff88" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00ff88" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00ff88" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="circle">
+      <circle cx="60" cy="60" r="58"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="60" fill="url(#bg)"/>
+
+  <!-- Circuit lattice background pattern -->
+  <g clip-path="url(#circle)" opacity="0.18">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="20" x2="120" y2="20" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="0" y1="40" x2="120" y2="40" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="0" y1="95" x2="120" y2="95" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="0" y1="110" x2="120" y2="110" stroke="#00ff88" stroke-width="0.3"/>
+    <!-- Vertical lines -->
+    <line x1="15" y1="0" x2="15" y2="120" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="35" y1="0" x2="35" y2="120" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="85" y1="0" x2="85" y2="120" stroke="#00ff88" stroke-width="0.3"/>
+    <line x1="105" y1="0" x2="105" y2="120" stroke="#00ff88" stroke-width="0.3"/>
+    <!-- Nodes -->
+    <circle cx="15" cy="20" r="1.2" fill="#00ff88"/>
+    <circle cx="35" cy="40" r="1.2" fill="#00ff88"/>
+    <circle cx="85" cy="20" r="1.2" fill="#00ff88"/>
+    <circle cx="105" cy="40" r="1.2" fill="#00ff88"/>
+    <circle cx="15" cy="95" r="1.2" fill="#00ff88"/>
+    <circle cx="105" cy="95" r="1.2" fill="#00ff88"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="50" y="90" width="20" height="18" rx="4" fill="url(#skinGrad)" clip-path="url(#circle)"/>
+
+  <!-- Shoulders / collar -->
+  <path d="M10 120 Q30 95 50 92 L70 92 Q90 95 110 120 Z" fill="#0e1e2e" clip-path="url(#circle)"/>
+  <!-- Collar accent -->
+  <path d="M44 95 Q60 104 76 95" stroke="#00ff88" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+  <!-- Hair back layer -->
+  <ellipse cx="60" cy="52" rx="36" ry="42" fill="url(#hairGrad)" clip-path="url(#circle)"/>
+
+  <!-- Long hair sides flowing down -->
+  <path d="M24 55 Q16 75 18 110 Q24 112 28 108 Q26 80 32 60 Z" fill="#120820" clip-path="url(#circle)"/>
+  <path d="M96 55 Q104 75 102 110 Q96 112 92 108 Q94 80 88 60 Z" fill="#120820" clip-path="url(#circle)"/>
+
+  <!-- Face shape - anime style, slightly sharp chin -->
+  <path d="M38 45 Q34 60 34 72 Q35 84 60 92 Q85 84 86 72 Q86 60 82 45 Q72 36 60 35 Q48 36 38 45 Z"
+        fill="url(#skinGrad)"/>
+
+  <!-- Hair top and fringe -->
+  <path d="M24 50 Q26 20 60 18 Q94 20 96 50 Q88 38 78 36 Q68 30 60 32 Q52 30 42 36 Q32 38 24 50 Z"
+        fill="url(#hairGrad)"/>
+  <!-- Hair sheen highlight -->
+  <path d="M28 30 Q50 18 72 22 Q58 18 44 24 Z" fill="url(#hairSheen)" opacity="0.5"/>
+
+  <!-- Anime fringe / bangs -->
+  <path d="M26 46 Q30 28 42 32 Q38 40 38 48 Z" fill="#0d0820"/>
+  <path d="M94 46 Q90 28 78 32 Q82 40 82 48 Z" fill="#0d0820"/>
+  <path d="M42 32 Q52 22 60 24 Q56 30 52 36 Z" fill="#0f0a22"/>
+  <path d="M78 32 Q68 22 60 24 Q64 30 68 36 Z" fill="#0f0a22"/>
+  <!-- Center bang -->
+  <path d="M52 30 Q60 20 68 30 Q64 32 60 36 Q56 32 52 30 Z" fill="#130a25"/>
+
+  <!-- Eyebrows - sharp anime style -->
+  <path d="M40 52 Q46 48 52 50" stroke="#2a1a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M68 50 Q74 48 80 52" stroke="#2a1a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Eyes - large anime eyes with green glow -->
+  <!-- Left eye -->
+  <ellipse cx="48" cy="60" rx="9" ry="8" fill="#0a1a12"/>
+  <ellipse cx="48" cy="60" rx="7.5" ry="6.5" fill="url(#irisGlow)"/>
+  <ellipse cx="48" cy="60" rx="5" ry="4.5" fill="#003322"/>
+  <circle cx="48" cy="60" r="3.5" fill="#00110a"/>
+  <!-- Eye glow reflection -->
+  <ellipse cx="48" cy="60" rx="7.5" ry="6.5" fill="none" stroke="#00ffaa" stroke-width="0.5" opacity="0.7" filter="url(#glow)"/>
+  <!-- Eye highlight sparkle -->
+  <circle cx="44.5" cy="56.5" r="1.8" fill="white" opacity="0.9"/>
+  <circle cx="51" cy="58" r="0.8" fill="white" opacity="0.6"/>
+  <!-- Eyelashes top -->
+  <path d="M39 55 Q44 52 57 54" stroke="#1a0a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M39 55 L37 52" stroke="#1a0a2a" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M42 53 L41 50" stroke="#1a0a2a" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Right eye -->
+  <ellipse cx="72" cy="60" rx="9" ry="8" fill="#0a1a12"/>
+  <ellipse cx="72" cy="60" rx="7.5" ry="6.5" fill="url(#irisGlow)"/>
+  <ellipse cx="72" cy="60" rx="5" ry="4.5" fill="#003322"/>
+  <circle cx="72" cy="60" r="3.5" fill="#00110a"/>
+  <ellipse cx="72" cy="60" rx="7.5" ry="6.5" fill="none" stroke="#00ffaa" stroke-width="0.5" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="68.5" cy="56.5" r="1.8" fill="white" opacity="0.9"/>
+  <circle cx="75" cy="58" r="0.8" fill="white" opacity="0.6"/>
+  <path d="M63 54 Q68 52 81 55" stroke="#1a0a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M81 55 L83 52" stroke="#1a0a2a" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M78 53 L79 50" stroke="#1a0a2a" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Nose - minimal anime style -->
+  <path d="M58 70 Q60 72 62 70" stroke="#d4a880" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Lips - soft, slightly parted -->
+  <path d="M52 78 Q56 76 60 77 Q64 76 68 78 Q64 82 60 82 Q56 82 52 78 Z" fill="#e8788a"/>
+  <path d="M52 78 Q56 80 60 79 Q64 80 68 78" stroke="#c85a6a" stroke-width="0.5" fill="none"/>
+  <!-- Lip highlight -->
+  <path d="M56 77 Q60 76 64 77" stroke="white" stroke-width="0.6" fill="none" opacity="0.4"/>
+
+  <!-- Blush marks - subtle anime blush -->
+  <ellipse cx="42" cy="68" rx="5" ry="2.5" fill="#ffb8c0" opacity="0.35"/>
+  <ellipse cx="78" cy="68" rx="5" ry="2.5" fill="#ffb8c0" opacity="0.35"/>
+
+  <!-- Circuit ear accessories -->
+  <circle cx="34" cy="66" r="3.5" fill="#0a1a0a" stroke="#00ff88" stroke-width="0.8" opacity="0.9"/>
+  <circle cx="34" cy="66" r="1.5" fill="#00ff88" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="86" cy="66" r="3.5" fill="#0a1a0a" stroke="#00ff88" stroke-width="0.8" opacity="0.9"/>
+  <circle cx="86" cy="66" r="1.5" fill="#00ff88" opacity="0.8" filter="url(#glow)"/>
+
+  <!-- Hair circuit lines accent -->
+  <path d="M26 44 L22 38 L26 34 L34 34" stroke="#00ff88" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <circle cx="34" cy="34" r="1" fill="#00ff88" opacity="0.6"/>
+  <path d="M94 44 L98 38 L94 34 L86 34" stroke="#00ff88" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <circle cx="86" cy="34" r="1" fill="#00ff88" opacity="0.6"/>
+
+  <!-- Outer ring border -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#00ff88" stroke-width="0.8" opacity="0.4"/>
+  <circle cx="60" cy="60" r="55" fill="none" stroke="#00ff88" stroke-width="0.3" opacity="0.2"/>
+</svg>
