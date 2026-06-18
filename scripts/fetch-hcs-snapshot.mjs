@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Build-time snapshot of latest HCS messages for instant dashboard paint on GitHub Pages.
+ * Prefers VNX mirror node when available (pre-decoded HIP + block proofs).
  */
 import { writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
@@ -8,7 +9,8 @@ import { fileURLToPath } from 'url';
 
 const TOPIC = '0.0.9227346';
 const LIMIT = 100;
-const MIRROR = 'https://testnet.mirrornode.hedera.com';
+const PUBLIC_MIRROR = 'https://testnet.mirrornode.hedera.com';
+const VNX_MIRROR = (process.env.VNX_MIRROR_URL || process.env.NEXT_PUBLIC_VNX_MIRROR_URL || 'http://localhost:3001').replace(/\/$/, '');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outDir = join(__dirname, '..', 'public');
@@ -75,23 +77,25 @@ function computeTpsFromMirror(messages) {
   return seqDelta / timeSpan;
 }
 
-function decodeMessage(msg) {
+function decodeMessage(msg, vnxMeta) {
   try {
     const decoded = JSON.parse(Buffer.from(msg.message, 'base64').toString('utf8'));
-    const type = String(decoded.type || 'unknown');
+    const type = String(decoded.type || vnxMeta?.type || 'unknown');
     return {
       sequenceNumber: msg.sequence_number,
       consensusTimestamp: msg.consensus_timestamp,
       type,
-      domain: detectDomain(type),
-      stage: decoded.stage,
+      domain: vnxMeta?.domain || detectDomain(type),
+      stage: decoded.stage || vnxMeta?.stage,
       batchId: decoded.batchId || decoded.claimId,
       energyDataHash: decoded.energyDataHash || decoded.dataHash,
-      dataHash: decoded.dataHash,
       decisionHash: decoded.decisionHash,
       previousStageHash: decoded.previousStageHash,
       winnerWorker: decoded.winnerWorker || decoded.winner,
       verified: decoded.verified,
+      blockNumber: vnxMeta?.blockNumber,
+      blockHash: vnxMeta?.blockHash,
+      mirrorSource: vnxMeta ? 'vnx-mirror' : 'public-mirror',
       raw: decoded,
     };
   } catch {
@@ -99,25 +103,63 @@ function decodeMessage(msg) {
   }
 }
 
-const url = `${MIRROR}/api/v1/topics/${TOPIC}/messages?limit=${LIMIT}&order=desc`;
-const res = await fetch(url);
-if (!res.ok) throw new Error(`Mirror fetch failed: ${res.status}`);
-const data = await res.json();
-const raw = data.messages || [];
-const maxSequence = raw[0]?.sequence_number ?? 0;
-const estimatedTps = computeTpsFromMirror(raw);
-const messages = reassembleChunkedMessages(raw).map(decodeMessage).filter(Boolean);
+async function fetchFromVnxMirror() {
+  try {
+    const url = `${VNX_MIRROR}/api/v1/vnx/feed?topicId=${TOPIC}&limit=${LIMIT}`;
+    const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+    if (!res.ok) return null;
+    const data = await res.json();
+    const raw = data.messages || [];
+    if (raw.length === 0) return null;
 
-const snapshot = {
-  topicId: TOPIC,
-  network: 'testnet',
-  maxSequence,
-  messageCount: messages.length,
-  estimatedTps,
-  messages,
-  fetchedAt: new Date().toISOString(),
-};
+    const messages = raw.map((m) => decodeMessage(m, m.vnx)).filter(Boolean);
+    return {
+      topicId: TOPIC,
+      network: 'testnet',
+      maxSequence: data.maxSequence ?? raw[0]?.sequence_number ?? 0,
+      messageCount: messages.length,
+      estimatedTps: data.estimatedTps ?? 0,
+      peakTps: data.peakTps ?? data.health?.peakTps ?? 0,
+      domainCounts: data.domainCounts ?? data.health?.domainCounts ?? {},
+      health: data.health,
+      messages,
+      mirrorSource: 'vnx-mirror',
+      mirrorUrl: VNX_MIRROR,
+      fetchedAt: data.fetchedAt ?? new Date().toISOString(),
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function fetchFromPublicMirror() {
+  const url = `${PUBLIC_MIRROR}/api/v1/topics/${TOPIC}/messages?limit=${LIMIT}&order=desc`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Mirror fetch failed: ${res.status}`);
+  const data = await res.json();
+  const raw = data.messages || [];
+  const maxSequence = raw[0]?.sequence_number ?? 0;
+  const estimatedTps = computeTpsFromMirror(raw);
+  const messages = reassembleChunkedMessages(raw).map((m) => decodeMessage(m)).filter(Boolean);
+
+  return {
+    topicId: TOPIC,
+    network: 'testnet',
+    maxSequence,
+    messageCount: messages.length,
+    estimatedTps,
+    messages,
+    mirrorSource: 'public-mirror',
+    mirrorUrl: PUBLIC_MIRROR,
+    fetchedAt: new Date().toISOString(),
+  };
+}
+
+const snapshot = (await fetchFromVnxMirror()) ?? (await fetchFromPublicMirror());
 
 const outPath = join(outDir, 'hcs-snapshot.json');
 writeFileSync(outPath, JSON.stringify(snapshot, null, 2));
-console.log(`Wrote ${outPath} — seq ${maxSequence}, ${messages.length} messages, ${Math.round(estimatedTps)} TPS`);
+console.log(
+  `Wrote ${outPath} — seq ${snapshot.maxSequence}, ${snapshot.messageCount} messages, ` +
+    `${Math.round(snapshot.estimatedTps)} TPS via ${snapshot.mirrorSource}`,
+);

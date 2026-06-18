@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { fetchEconomyData } from '@/lib/swarm-from-hcs';
 import {
   TrendingDown,
   TrendingUp,
@@ -85,8 +86,7 @@ export default function AgentEconomy() {
     let cancelled = false;
     async function fetchData() {
       try {
-        const res = await fetch('/api/vnx/economy', { cache: 'no-store' });
-        const json = await res.json();
+        const json = await fetchEconomyData();
         if (!cancelled) setData(json);
       } catch {
         // ignore
@@ -95,7 +95,7 @@ export default function AgentEconomy() {
       }
     }
     fetchData();
-    const interval = setInterval(fetchData, 5000);
+    const interval = setInterval(fetchData, 15000);
     return () => {
       cancelled = true;
       clearInterval(interval);

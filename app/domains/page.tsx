@@ -2,8 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Layers, Activity, ExternalLink } from 'lucide-react';
-import { VNX_DOMAINS, VNX_TESTNET_TOPIC, fetchTopicFeed, formatTps } from '@/lib/hcs-client';
+import { Layers, Activity, ExternalLink, Zap, Shield } from 'lucide-react';
+import {
+  VNX_DOMAINS,
+  VNX_TESTNET_TOPIC,
+  fetchTopicFeed,
+  formatTps,
+  formatMirrorStatus,
+} from '@/lib/hcs-client';
+import { DOMAIN_CARD_GRADIENT, STATUS_STYLES } from '@/lib/vnx-theme';
+import type { MirrorNodeStatus } from '@/lib/hcs-client';
 
 interface DomainStats {
   id: string;
@@ -12,18 +20,16 @@ interface DomainStats {
   lastSeq?: number;
 }
 
-const COLOR_MAP: Record<string, string> = {
-  emerald: 'from-emerald-500/10 border-emerald-500/20',
-  amber: 'from-amber-500/10 border-amber-500/20',
-  violet: 'from-violet-500/10 border-violet-500/20',
-  sky: 'from-sky-500/10 border-sky-500/20',
-  cyan: 'from-cyan-500/10 border-cyan-500/20',
-};
-
 export default function DomainsPage() {
   const [stats, setStats] = useState<DomainStats[]>([]);
   const [totalMessages, setTotalMessages] = useState(0);
+  const [indexedTotal, setIndexedTotal] = useState(0);
   const [tps, setTps] = useState(0);
+  const [peakTps, setPeakTps] = useState(0);
+  const [blockCount, setBlockCount] = useState(0);
+  const [mirrorLabel, setMirrorLabel] = useState<string | null>(null);
+  const [mirrorStatus, setMirrorStatus] = useState<MirrorNodeStatus | null>(null);
+  const [mirrorSource, setMirrorSource] = useState<string | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -32,14 +38,26 @@ export default function DomainsPage() {
         const msgs = feed.messages;
         setTotalMessages(feed.maxSequence);
         setTps(feed.estimatedTps);
+        setPeakTps(feed.peakTps ?? feed.health?.peakTps ?? 0);
+        setMirrorSource(feed.mirrorSource);
+        if (feed.health) {
+          setMirrorLabel(formatMirrorStatus(feed.health.status));
+          setMirrorStatus(feed.health.status);
+          setBlockCount(feed.health.blockCount);
+          setIndexedTotal(feed.health.messageCount);
+        } else {
+          setMirrorLabel(feed.mirrorSource === 'vnx-mirror' ? 'VNX Mirror' : 'Public');
+        }
 
+        const indexed = feed.domainCounts ?? feed.health?.domainCounts ?? {};
         const domainCounts: Record<string, { count: number; lastType?: string; lastSeq?: number }> = {};
-        for (const d of VNX_DOMAINS) domainCounts[d.id] = { count: 0 };
+        for (const d of VNX_DOMAINS) {
+          domainCounts[d.id] = { count: indexed[d.id] ?? 0 };
+        }
 
         for (const msg of msgs) {
           const id = msg.domain || 'unknown';
-          if (!domainCounts[id]) domainCounts[id] = { count: 0 };
-          domainCounts[id].count++;
+          if (!domainCounts[id]) domainCounts[id] = { count: indexed[id] ?? 0 };
           if (!domainCounts[id].lastSeq || msg.sequenceNumber > domainCounts[id].lastSeq!) {
             domainCounts[id].lastType = msg.type;
             domainCounts[id].lastSeq = msg.sequenceNumber;
@@ -49,7 +67,7 @@ export default function DomainsPage() {
         setStats(
           VNX_DOMAINS.map((d) => ({
             id: d.id,
-            messageCount: domainCounts[d.id]?.count || 0,
+            messageCount: domainCounts[d.id]?.count || indexed[d.id] || 0,
             lastType: domainCounts[d.id]?.lastType,
             lastSeq: domainCounts[d.id]?.lastSeq,
           })),
@@ -68,35 +86,59 @@ export default function DomainsPage() {
           <Layers className="h-5 w-5 text-veda-accent" />
           <div>
             <h1 className="text-sm font-semibold">VNX Domains</h1>
-            <p className="text-[10px] text-white/40">Per-domain stats from live testnet topic</p>
+            <p className="text-[10px] text-white/40">
+              Per-domain stats · {mirrorLabel ?? 'loading…'}
+              {mirrorSource === 'vnx-mirror' && ' · VNX Mirror'}
+            </p>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2">
+          {mirrorStatus && (
+            <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium ${STATUS_STYLES[mirrorStatus]}`}>
+              {mirrorLabel}
+            </span>
+          )}
           <Link href="/dashboard" className="text-xs text-white/50 hover:text-white/80">Dashboard</Link>
           <Link href="/" className="text-xs text-white/50 hover:text-white/80">Home</Link>
         </div>
       </header>
 
       <main className="mx-auto max-w-6xl space-y-4 p-4">
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3">
             <div className="text-[10px] uppercase text-white/40">Topic</div>
             <div className="font-mono text-sm">{VNX_TESTNET_TOPIC}</div>
           </div>
           <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3">
-            <div className="text-[10px] uppercase text-white/40">Messages (sample)</div>
-            <div className="text-xl font-semibold">{totalMessages}</div>
+            <div className="text-[10px] uppercase text-white/40">Max sequence</div>
+            <div className="text-xl font-semibold">{totalMessages.toLocaleString()}</div>
           </div>
           <div className="rounded-lg border border-veda-accent/20 bg-veda-accent/5 p-3">
-            <div className="text-[10px] uppercase text-white/40">Live TPS</div>
+            <div className="flex items-center gap-1 text-[10px] uppercase text-white/40">
+              <Zap className="h-3 w-3" /> Live TPS
+            </div>
             <div className="text-xl font-semibold text-veda-accent">{formatTps(tps)}</div>
+            {peakTps > 0 && (
+              <div className="text-[10px] text-white/30">peak {formatTps(peakTps)}</div>
+            )}
           </div>
+          {mirrorSource === 'vnx-mirror' && (
+            <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3">
+              <div className="flex items-center gap-1 text-[10px] uppercase text-white/40">
+                <Shield className="h-3 w-3" /> Indexed
+              </div>
+              <div className="text-xl font-semibold">{indexedTotal.toLocaleString()}</div>
+              {blockCount > 0 && (
+                <div className="text-[10px] text-white/30">{blockCount} blocks</div>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {VNX_DOMAINS.map((domain) => {
             const s = stats.find((x) => x.id === domain.id);
-            const gradient = COLOR_MAP[domain.color] || 'from-white/5 border-white/10';
+            const gradient = DOMAIN_CARD_GRADIENT[domain.color] || 'from-white/5 border-white/10';
             return (
               <div
                 key={domain.id}
@@ -112,7 +154,9 @@ export default function DomainsPage() {
 
                 <div className="mt-4 space-y-2 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-white/40">Messages (last 100)</span>
+                    <span className="text-white/40">
+                      {mirrorSource === 'vnx-mirror' ? 'Indexed' : 'Messages (sample)'}
+                    </span>
                     <span className="font-semibold">{s?.messageCount ?? '—'}</span>
                   </div>
                   {s?.lastType && (
@@ -130,7 +174,13 @@ export default function DomainsPage() {
                   )}
                 </div>
 
-                <div className="mt-3 flex flex-wrap gap-1">
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/dashboard?domain=${domain.id}`}
+                    className="rounded border border-white/10 px-2 py-0.5 text-[10px] text-white/50 hover:border-veda-accent/30 hover:text-veda-accent"
+                  >
+                    View feed →
+                  </Link>
                   {domain.hcsTypes.map((t) => (
                     <span key={t} className="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[9px] text-white/30">
                       {t}

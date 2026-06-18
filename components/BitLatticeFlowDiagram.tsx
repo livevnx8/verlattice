@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { BitLatticeFlow } from '@/lib/vnx-types';
+import { fetchBitLatticeData } from '@/lib/swarm-from-hcs';
 import {
   Activity,
   Zap,
@@ -59,8 +60,7 @@ export default function BitLatticeFlowDiagram() {
     let cancelled = false;
     async function fetchData() {
       try {
-        const res = await fetch('/api/vnx/bitlattice', { cache: 'no-store' });
-        const json = await res.json();
+        const json = await fetchBitLatticeData();
         if (!cancelled) setData(json);
       } catch {
         // ignore
@@ -69,7 +69,7 @@ export default function BitLatticeFlowDiagram() {
       }
     }
     fetchData();
-    const interval = setInterval(fetchData, 6000);
+    const interval = setInterval(fetchData, 12000);
     return () => {
       cancelled = true;
       clearInterval(interval);

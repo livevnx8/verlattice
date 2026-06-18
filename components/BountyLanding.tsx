@@ -7,9 +7,11 @@ import {
   Cpu, Coins, GitBranch, CheckCircle, Hexagon, Zap, Database,
 } from 'lucide-react';
 import {
-  fetchTopicFeed, formatTps, hashscanTopicUrl,
+  fetchTopicFeed, formatTps, formatMirrorStatus, hashscanTopicUrl,
   type DecodedVnxMessage,
 } from '@/lib/hcs-client';
+import { STATUS_STYLES } from '@/lib/vnx-theme';
+import type { MirrorNodeStatus } from '@/lib/hcs-client';
 
 const TESTNET_TOPIC = '0.0.9227346';
 const HASHSCAN_TOPIC = `https://hashscan.io/testnet/topic/${TESTNET_TOPIC}`;
@@ -72,6 +74,9 @@ export default function BountyLanding() {
   const [msgs, setMsgs] = useState<DecodedVnxMessage[]>([]);
   const [maxSeq, setMaxSeq] = useState<number>(0);
   const [tps, setTps] = useState<number>(0);
+  const [peakTps, setPeakTps] = useState<number>(0);
+  const [mirrorSource, setMirrorSource] = useState<string | null>(null);
+  const [mirrorStatus, setMirrorStatus] = useState<MirrorNodeStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [lastFetched, setLastFetched] = useState('');
 
@@ -81,6 +86,9 @@ export default function BountyLanding() {
       setMsgs(feed.messages);
       setMaxSeq(feed.maxSequence);
       setTps(feed.estimatedTps);
+      setPeakTps(feed.peakTps ?? feed.health?.peakTps ?? 0);
+      setMirrorSource(feed.mirrorSource);
+      setMirrorStatus(feed.health?.status ?? null);
       setLastFetched(new Date().toLocaleTimeString());
     } catch {}
     setLoading(false);
@@ -129,13 +137,20 @@ export default function BountyLanding() {
             </div>
           </div>
           <div className="flex shrink-0 flex-col gap-2 sm:items-end">
+            {mirrorStatus && mirrorSource === 'vnx-mirror' && (
+              <span className={`rounded-full border px-2.5 py-0.5 text-[10px] font-medium ${STATUS_STYLES[mirrorStatus]}`}>
+                {formatMirrorStatus(mirrorStatus)} · VNX Mirror
+              </span>
+            )}
             <div className="rounded-lg border border-veda-accent/20 bg-black/40 px-4 py-3 text-center">
               <div className="text-2xl font-bold text-veda-accent">{maxSeq > 0 ? maxSeq.toLocaleString() : '—'}</div>
               <div className="text-[10px] uppercase tracking-widest text-white/40">On-chain messages</div>
             </div>
             <div className="rounded-lg border border-white/10 bg-black/40 px-4 py-2 text-center">
               <div className="text-lg font-semibold text-white/90">{formatTps(tps)}</div>
-              <div className="text-[10px] uppercase tracking-widest text-white/40">Live TPS</div>
+              <div className="text-[10px] uppercase tracking-widest text-white/40">
+                Live TPS{peakTps > 0 ? ` · peak ${formatTps(peakTps)}` : ''}
+              </div>
             </div>
           </div>
         </div>
@@ -190,6 +205,9 @@ export default function BountyLanding() {
                     </div>
                     <div className="mt-1 flex flex-wrap gap-3 text-[10px] text-white/25">
                       {timeStr && <span>{timeStr}</span>}
+                      {msg.blockNumber != null && (
+                        <span className="text-veda-accent/60">block #{msg.blockNumber}</span>
+                      )}
                       {msg.batchId && <span className="font-mono truncate max-w-[160px]">{msg.batchId}</span>}
                       {msg.energyDataHash && (
                         <Link href={`/receipts/${msg.energyDataHash}`} prefetch={false} className="font-mono text-veda-accent/60 hover:text-veda-accent hover:underline truncate max-w-[140px]">

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import type { EvidencePacket, RegistryStats } from '@/lib/vnx-types';
+import { fetchEvidenceData } from '@/lib/swarm-from-hcs';
 import {
   Database,
   Search,
@@ -77,9 +78,7 @@ export default function EvidenceRegistryBrowser() {
     let cancelled = false;
     async function fetchData() {
       try {
-        const url = selectedDomain !== 'all' ? `/api/vnx/evidence?domain=${selectedDomain}` : '/api/vnx/evidence';
-        const res = await fetch(url, { cache: 'no-store' });
-        const json = await res.json();
+        const json = await fetchEvidenceData(selectedDomain);
         if (!cancelled) setData(json);
       } catch {
         // ignore
@@ -88,7 +87,7 @@ export default function EvidenceRegistryBrowser() {
       }
     }
     fetchData();
-    const interval = setInterval(fetchData, 8000);
+    const interval = setInterval(fetchData, 12000);
     return () => {
       cancelled = true;
       clearInterval(interval);

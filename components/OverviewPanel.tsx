@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { AgentStatus, PredictionRecord, SwarmStats } from '@/lib/vnx-types';
+import { fetchSwarmData } from '@/lib/swarm-from-hcs';
 import {
   Activity,
   TrendingUp,
@@ -44,8 +45,7 @@ export default function OverviewPanel() {
     let cancelled = false;
     async function fetchData() {
       try {
-        const res = await fetch('/api/vnx/swarm', { cache: 'no-store' });
-        const json = await res.json();
+        const json = await fetchSwarmData(100);
         if (!cancelled) setData(json);
       } catch {
         // ignore
@@ -54,7 +54,7 @@ export default function OverviewPanel() {
       }
     }
     fetchData();
-    const interval = setInterval(fetchData, 4000);
+    const interval = setInterval(fetchData, 10000);
     return () => {
       cancelled = true;
       clearInterval(interval);
