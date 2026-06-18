@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { Activity, Radio, ExternalLink, RefreshCw } from 'lucide-react';
-import { VNX_TESTNET_TOPIC } from '@/lib/hcs-client';
+import { VNX_TESTNET_TOPIC, fetchTopicMessages, computeTps, hashscanTopicUrl, type DecodedVnxMessage } from '@/lib/hcs-client';
 
 interface HcsFeedResponse {
   topicId: string;
@@ -39,15 +39,20 @@ const DOMAIN_COLORS: Record<string, string> = {
 };
 
 export default function DashboardPage() {
+  const [messages, setMessages] = useState<DecodedVnxMessage[]>([]);
+  const [maxSeq, setMaxSeq] = useState(0);
+  const [tps, setTps] = useState(0);
   const [feed, setFeed] = useState<HcsFeedResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [pollInterval, setPollInterval] = useState(10);
 
   const fetchFeed = useCallback(async () => {
     try {
-      const res = await fetch(`/api/hcs/${VNX_TESTNET_TOPIC}?network=testnet&limit=30`);
-      const data = await res.json();
-      setFeed(data);
+      const msgs = await fetchTopicMessages(VNX_TESTNET_TOPIC, 'testnet', 30);
+      setMessages(msgs);
+      setMaxSeq(msgs[0]?.sequenceNumber ?? 0);
+      setTps(computeTps(msgs));
+      setFeed({ topicId: VNX_TESTNET_TOPIC, network: 'testnet', messageCount: msgs.length, maxSequence: msgs[0]?.sequenceNumber ?? 0, estimatedTps: computeTps(msgs), messages: msgs as unknown as HcsFeedResponse['messages'], hashscanUrl: `https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}`, fetchedAt: new Date().toISOString() });
     } catch {
       setFeed({ error: 'Failed to fetch', topicId: VNX_TESTNET_TOPIC } as HcsFeedResponse);
     }
@@ -111,6 +116,7 @@ export default function DashboardPage() {
           <Radio className="h-3 w-3 text-green-400 animate-pulse" />
           Polling every
           <select
+            title="Poll interval"
             value={pollInterval}
             onChange={(e) => setPollInterval(Number(e.target.value))}
             className="rounded border border-white/10 bg-black/40 px-2 py-0.5 text-white/70"
@@ -166,6 +172,7 @@ export default function DashboardPage() {
                     href={`https://hashscan.io/testnet/topic/${VNX_TESTNET_TOPIC}/${msg.sequenceNumber}`}
                     target="_blank"
                     rel="noopener"
+                    aria-label={`View message #${msg.sequenceNumber} on HashScan`}
                     className="shrink-0 text-white/20 hover:text-white/60"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />

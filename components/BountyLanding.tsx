@@ -6,6 +6,10 @@ import {
   Activity, ExternalLink, Radio, RefreshCw, Shield, Layers,
   Cpu, Coins, GitBranch, CheckCircle, Hexagon, Zap, Database,
 } from 'lucide-react';
+import {
+  fetchTopicMessages, computeTps, hashscanTopicUrl,
+  type DecodedVnxMessage,
+} from '@/lib/hcs-client';
 
 const TESTNET_TOPIC = '0.0.9227346';
 const HASHSCAN_TOPIC = `https://hashscan.io/testnet/topic/${TESTNET_TOPIC}`;
@@ -64,20 +68,8 @@ const DOMAIN_CARD: Record<string, string> = {
   cyan:    'border-cyan-500/20    from-cyan-500/10',
 };
 
-interface FeedMsg {
-  sequenceNumber: number;
-  consensusTimestamp: string;
-  type: string;
-  domain: string;
-  stage?: string;
-  batchId?: string;
-  energyDataHash?: string;
-  decisionHash?: string;
-  verified?: boolean;
-}
-
 export default function BountyLanding() {
-  const [msgs, setMsgs] = useState<FeedMsg[]>([]);
+  const [msgs, setMsgs] = useState<DecodedVnxMessage[]>([]);
   const [maxSeq, setMaxSeq] = useState<number>(0);
   const [tps, setTps] = useState<number>(0);
   const [loading, setLoading] = useState(true);
@@ -85,11 +77,10 @@ export default function BountyLanding() {
 
   const fetchFeed = useCallback(async () => {
     try {
-      const res = await fetch(`/api/hcs/${TESTNET_TOPIC}?network=testnet&limit=20`);
-      const data = await res.json();
-      setMsgs(data.messages || []);
-      setMaxSeq(data.maxSequence || 0);
-      setTps(data.estimatedTps || 0);
+      const messages = await fetchTopicMessages(TESTNET_TOPIC, 'testnet', 20);
+      setMsgs(messages);
+      setMaxSeq(messages[0]?.sequenceNumber ?? 0);
+      setTps(computeTps(messages));
       setLastFetched(new Date().toLocaleTimeString());
     } catch {}
     setLoading(false);
@@ -177,7 +168,7 @@ export default function BountyLanding() {
             {msgs.map((msg) => {
               const d = DOMAINS.find((x) => x.id === msg.domain);
               const colorClass = d ? DOMAIN_COLOR[d.color] : 'border-white/10 bg-white/5 text-white/40';
-              const seqUrl = `https://hashscan.io/testnet/topic/${TESTNET_TOPIC}/${msg.sequenceNumber}`;
+              const seqUrl = hashscanTopicUrl(TESTNET_TOPIC, msg.sequenceNumber);
               const ts = parseFloat(msg.consensusTimestamp);
               const timeStr = ts ? new Date(ts * 1000).toLocaleTimeString() : '';
               return (

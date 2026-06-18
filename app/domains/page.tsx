@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Layers, Activity, ExternalLink } from 'lucide-react';
-import { VNX_DOMAINS, VNX_TESTNET_TOPIC } from '@/lib/hcs-client';
+import { VNX_DOMAINS, VNX_TESTNET_TOPIC, fetchTopicMessages, computeTps } from '@/lib/hcs-client';
 
 interface DomainStats {
   id: string;
@@ -28,15 +28,14 @@ export default function DomainsPage() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/api/hcs/${VNX_TESTNET_TOPIC}?network=testnet&limit=100`);
-        const data = await res.json();
-        setTotalMessages(data.messageCount || 0);
-        setTps(data.estimatedTps || 0);
+        const msgs = await fetchTopicMessages(VNX_TESTNET_TOPIC, 'testnet', 100);
+        setTotalMessages(msgs[0]?.sequenceNumber ?? 0);
+        setTps(computeTps(msgs));
 
         const domainCounts: Record<string, { count: number; lastType?: string; lastSeq?: number }> = {};
         for (const d of VNX_DOMAINS) domainCounts[d.id] = { count: 0 };
 
-        for (const msg of data.messages || []) {
+        for (const msg of msgs) {
           const id = msg.domain || 'unknown';
           if (!domainCounts[id]) domainCounts[id] = { count: 0 };
           domainCounts[id].count++;

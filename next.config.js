@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   reactStrictMode: true,
   env: {
     BOT_RPC_URL: process.env.BOT_RPC_URL || 'http://localhost:8560',

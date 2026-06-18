@@ -82,9 +82,14 @@ export function detectDomain(messageType: string): string {
   return 'unknown';
 }
 
+function b64decode(str: string): string {
+  if (typeof atob !== 'undefined') return atob(str);
+  return Buffer.from(str, 'base64').toString('utf8');
+}
+
 export function decodeHcsMessage(msg: HcsMirrorMessage): DecodedVnxMessage | null {
   try {
-    const decoded = JSON.parse(Buffer.from(msg.message, 'base64').toString('utf8')) as Record<string, unknown>;
+    const decoded = JSON.parse(b64decode(msg.message)) as Record<string, unknown>;
     const type = String(decoded.type || 'unknown');
     return {
       sequenceNumber: msg.sequence_number,
@@ -123,12 +128,21 @@ export async function fetchTopicMessages(
 ): Promise<DecodedVnxMessage[]> {
   const base = mirrorBaseUrl(network);
   const url = `${base}/api/v1/topics/${topicId}/messages?limit=${limit}&order=desc`;
-  const res = await fetch(url, { next: { revalidate: 5 } });
+  const res = await fetch(url, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Mirror node error: ${res.status}`);
   const data = (await res.json()) as { messages?: HcsMirrorMessage[] };
   return (data.messages || [])
     .map(decodeHcsMessage)
     .filter((m): m is DecodedVnxMessage => m !== null);
+}
+
+export async function fetchTopicMeta(
+  topicId: string,
+  network: 'testnet' | 'mainnet' = 'testnet',
+): Promise<{ maxSequence: number; estimatedTps: number }> {
+  const messages = await fetchTopicMessages(topicId, network, 60);
+  const maxSequence = messages[0]?.sequenceNumber ?? 0;
+  return { maxSequence, estimatedTps: computeTps(messages) };
 }
 
 export function computeTps(messages: DecodedVnxMessage[], windowSec = 60): number {
