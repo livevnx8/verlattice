@@ -227,8 +227,8 @@ export default function ProofReceiptVisualizer() {
                 }`}
               >
                 <div
-                  className={`absolute left-0 top-0 h-full ${isWinner ? 'bg-veda-accent/10' : 'bg-white/[0.03]'}`}
-                  style={{ width: `${pct}%` }}
+                  className={`absolute left-0 top-0 h-full bar-fill ${isWinner ? 'bg-veda-accent/10' : 'bg-white/[0.03]'}`}
+                  style={{ '--bar-pct': `${pct}%` } as React.CSSProperties}
                 />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-2">

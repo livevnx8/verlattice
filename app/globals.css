@@ -97,3 +97,22 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Dynamic grid layout (BitLatticeFlowDiagram) */
+.grid-dynamic {
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--grid-rows), auto);
+}
+
+/* Dynamic width bar (OverviewPanel, ProofReceiptVisualizer) */
+.bar-fill {
+  width: var(--bar-pct);
+}
+
+/* Diagonal edge connectors (BitLatticeFlowDiagram) */
+.edge-right {
+  transform: rotate(35deg);
+}
+.edge-left {
+  transform: rotate(-35deg);
+}
