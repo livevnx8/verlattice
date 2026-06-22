@@ -248,8 +248,7 @@ export default function BitLatticeFlowDiagram() {
             return (
               <div key={key} className="flex items-center justify-center">
                 <div
-                  className={`h-6 w-0.5 rotate-45 ${e.active ? (isPulsing ? 'bg-veda-accent' : 'bg-white/10') : 'bg-white/[0.03]'}`}
-                  style={{ transform: goingRight ? 'rotate(35deg)' : 'rotate(-35deg)' }}
+                  className={`h-6 w-0.5 ${goingRight ? 'rotate-[35deg]' : '-rotate-[35deg]'} ${e.active ? (isPulsing ? 'bg-veda-accent' : 'bg-white/10') : 'bg-white/[0.03]'}`}
                 />
               </div>
             );
@@ -297,7 +296,7 @@ export default function BitLatticeFlowDiagram() {
         </div>
 
         <div className="flex justify-center">
-          <div className="grid gap-x-6 gap-y-2" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${rows}, auto)` }}>
+          <div className="grid grid-cols-3 [grid-template-rows:repeat(9,auto)] gap-x-6 gap-y-2">
             {Array.from({ length: rows }).map((_, row) =>
               Array.from({ length: cols }).map((__, col) => (
                 <div key={`${row}-${col}`} className="flex min-h-[60px] items-center justify-center">

@@ -349,8 +349,8 @@ function StatBar({ label, value, max, unit, color }: { label: string; value: num
       </div>
       <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.04]">
         <div
-          className={`h-full rounded-full ${color} transition-all duration-1000`}
-          style={{ width: `${pct}%`, opacity: 0.7 }}
+          className={`h-full rounded-full ${color} opacity-70 transition-all duration-1000`}
+          style={{ width: `${pct}%` }}
         />
       </div>
     </div>
