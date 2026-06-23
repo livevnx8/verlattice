@@ -116,3 +116,9 @@ body {
 .edge-left {
   transform: rotate(-35deg);
 }
+
+/* Absolute position via CSS vars (ArchitectureFlow) */
+.node-pos {
+  left: var(--node-x);
+  top: var(--node-y);
+}
