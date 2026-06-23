@@ -248,7 +248,7 @@ export default function BitLatticeFlowDiagram() {
             return (
               <div key={key} className="flex items-center justify-center">
                 <div
-                  className={`h-6 w-0.5 ${goingRight ? 'rotate-[35deg]' : '-rotate-[35deg]'} ${e.active ? (isPulsing ? 'bg-veda-accent' : 'bg-white/10') : 'bg-white/[0.03]'}`}
+                  className={`h-6 w-0.5 ${goingRight ? 'edge-right' : 'edge-left'} ${e.active ? (isPulsing ? 'bg-veda-accent' : 'bg-white/10') : 'bg-white/[0.03]'}`}
                 />
               </div>
             );
@@ -296,7 +296,7 @@ export default function BitLatticeFlowDiagram() {
         </div>
 
         <div className="flex justify-center">
-          <div className="grid grid-cols-3 [grid-template-rows:repeat(9,auto)] gap-x-6 gap-y-2">
+          <div className="grid grid-dynamic gap-x-6 gap-y-2" style={{ '--grid-cols': cols, '--grid-rows': rows } as React.CSSProperties}>
             {Array.from({ length: rows }).map((_, row) =>
               Array.from({ length: cols }).map((__, col) => (
                 <div key={`${row}-${col}`} className="flex min-h-[60px] items-center justify-center">

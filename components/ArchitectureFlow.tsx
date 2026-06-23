@@ -159,7 +159,7 @@ export default function ArchitectureFlow() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_340px]">
         {/* Diagram */}
         <div className="relative min-h-[500px] rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
-          <svg className="absolute inset-0 h-full w-full" style={{ overflow: 'visible' }}>
+          <svg className="absolute inset-0 h-full w-full overflow-visible">
             <defs>
               <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="rgba(252,238,10,0.3)" />
@@ -216,8 +216,8 @@ export default function ArchitectureFlow() {
             <button
               key={node.id}
               onClick={() => setSelected(selected === node.id ? null : node.id)}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 transform transition-all duration-300 ${selected === node.id ? 'scale-110 z-10' : 'hover:scale-105'}`}
-              style={{ left: `${node.x}%`, top: `${node.y}%` }}
+              className={`absolute node-pos -translate-x-1/2 -translate-y-1/2 transform transition-all duration-300 ${selected === node.id ? 'scale-110 z-10' : 'hover:scale-105'}`}
+              style={{ '--node-x': `${node.x}%`, '--node-y': `${node.y}%` } as React.CSSProperties}
             >
               <div
                 className={`flex flex-col items-center gap-2 rounded-xl border px-4 py-3 backdrop-blur-sm transition-all ${

@@ -257,8 +257,8 @@ export default function DashboardPage() {
                 <div
                   key={domain}
                   title={`${domain}: ${count}`}
-                  className={`h-full first:rounded-l-full last:rounded-r-full ${domainBarClass(domain)}`}
-                  style={{ width: `${(count / domainTotal) * 100}%` }}
+                  className={`h-full bar-fill first:rounded-l-full last:rounded-r-full ${domainBarClass(domain)}`}
+                  style={{ '--bar-pct': `${(count / domainTotal) * 100}%` } as React.CSSProperties}
                 />
               ))}
             </div>
